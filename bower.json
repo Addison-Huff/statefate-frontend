@@ -1,0 +1,26 @@
+{
+  "name": "statefate",
+  "version": "0.0.0",
+  "authors": [
+    "Matthew Prestifilippo <m.prestifilippo@gmail.com>"
+  ],
+  "description": "Create a movement",
+  "main": "main.js",
+  "keywords": [
+    "expenses"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.14"
+  }
+}
