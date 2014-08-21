@@ -1,15 +1,15 @@
 define [
 	'backbone',
-	'template/shared/topnav'
+	'view/topnav'
 ], (
 	Backbone,
-	template
+	TopnavView
 ) ->
 	IndexView = Backbone.View.extend
 		el: 'body'
 		initialize: (options) ->
 			options ?= {}
-			@template = options.template || template
+			@topnav = new TopnavView
 
 		render: ->
-			@$el.html @template()
+			@topnav.render()
