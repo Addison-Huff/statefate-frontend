@@ -58,6 +58,9 @@ module.exports = function(grunt) {
 		grunt.file.copy('bower_components/backbone/backbone.js', buildDir + '/js/lib/backbone.js');
 		grunt.file.copy('bower_components/underscore/underscore.js', buildDir + '/js/lib/underscore.js');
 		grunt.file.copy('bower_components/jquery/dist/jquery.js', buildDir + '/js/lib/jquery.js');
+		grunt.file.copy('bower_components/fastclick/lib/fastclick.js', buildDir + '/js/lib/fastclick.js');
+		grunt.file.copy('bower_components/foundation/js/foundation.min.js', buildDir + '/js/lib/foundation.js');
+		grunt.file.copy('bower_components/foundation/css/foundation.css', buildDir + '/css/foundation.css');
 	});
 
 	grunt.task.registerTask('haml:compile', 'Compile haml templates', function() {

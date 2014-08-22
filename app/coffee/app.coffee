@@ -7,6 +7,7 @@ define [
 ) ->
 	app =
 		main: ->
+			$(document).foundation()
 			router.on 'route:change', (path) ->
 
 				require ['view/index'], (View) ->

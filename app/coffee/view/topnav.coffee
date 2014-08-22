@@ -24,7 +24,10 @@ define [
 
 		clickLogin: (e) ->
 			e.preventDefault()
-			router.navigate e.target.pathname
+			require ['view/user/login-modal'], (LoginModalView) =>
+				@loginView = @loginView || new LoginModalView()
+				@loginView.render()
+				@loginView.open()
 
 		render: ->
 			@$el.html @template()

@@ -7,7 +7,7 @@
   "description": "Create a movement",
   "main": "main.js",
   "keywords": [
-    "expenses"
+    "protest"
   ],
   "license": "MIT",
   "private": true,
@@ -21,6 +21,7 @@
   "dependencies": {
     "backbone": "~1.1.2",
     "jquery": "~2.1.1",
-    "requirejs": "~2.1.14"
+    "requirejs": "~2.1.14",
+    "foundation": "~5.4.0"
   }
 }
