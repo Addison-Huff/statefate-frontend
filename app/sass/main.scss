@@ -1,4 +1,19 @@
+$black: #000;
+
 body { background: url(/img/protest.jpg); }
 
 .top-bar { background: none; margin-top: 10px; }
-.top-bar .title-area { background: #333; }
+.top-bar .title-area { background: $black; }
+
+#main { text-align: center; }
+
+#login { margin-top: 150px; }
+#login label { color: #ddd; }
+#login .row { background: $black; }
+#login .username { padding-top: 30px; }
+#login .button { width: 100%; margin-bottom: 0; }
+#login .row.forgot,
+#login .forgot-btn { background: transparent; }
+
+#four-oh-four { text-align: center; }
+#four-oh-four * { color: #ddd; }

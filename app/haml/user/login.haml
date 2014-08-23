@@ -1,9 +1,19 @@
-%form
-	.row.username
-		.large-12.column
-			%label Username
-				%input{placeholder: 'john.doe', type: 'text' }
-	.row.password
-		.large-12.column
-			%label Password
-				%input{type: 'password', placeholder: '**********' }
+.row
+	.column.large-4 &nbsp;
+	%form#login.large-4.column
+		.row.username
+			.large-12.column
+				%label Username
+					%input{placeholder: 'john.doe', type: 'text' }
+		.row.password
+			.large-12.column
+				%label Password
+					%input{type: 'password', placeholder: '**********' }
+
+		.row.login
+			%button.button.login-btn
+				Login
+		.row.forgot
+			%button.button.forgot-btn
+				Forgot password?
+	.column.large-4 &nbsp;

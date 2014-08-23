@@ -5,17 +5,25 @@ define [
 ) ->
 	Router = Backbone.Router.extend
 		routes:
+			'': 'index'
 			'user/login': 'login'
-			'*path': 'change'
+			'*path': '404'
 
 		log: console.log.bind console, '[Router]'
 
-		change: (path) ->
-			@log(path)
+		404: ->
+			require ['view/404'], (NotFoundView) =>
+				@fourOhFourView ?= new NotFoundView
+				@fourOhFourView.render()
 
-		'login': (yea) ->
+		index: ->
+			require ['view/home'], (HomeView) =>
+				@homeView ?= new HomeView
+				@homeView.render()
+				
+		login: ->
 			require ['view/user/login'], (LoginView) =>
-				@view ?= new LoginView
-				@view.render()
+				@loginView ?= new LoginView
+				@loginView.render()
 
 	return new Router

@@ -15,14 +15,9 @@ define [
 			@template = options.template || template
 
 		events:
-			'click .protest': 'clickProtest'
-			'click .login': 'clickLogin'
+			'click .protest, .login, .home': 'click'
 
-		clickProtest: (e) ->
-			e.preventDefault()
-			router.navigate e.target.pathname, trigger: true
-
-		clickLogin: (e) ->
+		click: (e) ->
 			e.preventDefault()
 			router.navigate e.target.pathname, trigger: true
 

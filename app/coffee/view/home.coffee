@@ -1,11 +1,11 @@
 define [
 	'backbone',
-	'template/user/login'
+	'template/home'
 ], (
 	Backbone,
 	template
 ) ->
-	LoginModalView = Backbone.View.extend
+	IndexView = Backbone.View.extend
 		el: '#body'
 		render: ->
 			@$el.html template()
