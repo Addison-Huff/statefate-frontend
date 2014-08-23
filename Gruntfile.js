@@ -52,6 +52,12 @@ module.exports = function(grunt) {
 		});
 	});
 
+	grunt.task.registerTask('copy:img', 'Copy image files', function() {
+		grunt.file.recurse('app/img', function(path) {
+			grunt.file.copy(path, path.replace(/^app\/img/, grunt.config.get('buildDir') + '/img'));
+		});
+	});
+
 	grunt.task.registerTask('copy:dependencies', 'Copy bower dependencies', function() {
 		var buildDir = grunt.config.get('buildDir');
 		grunt.file.copy('bower_components/requirejs/require.js', buildDir + '/js/lib/require.js');
@@ -97,5 +103,5 @@ module.exports = function(grunt) {
 		});
 	});
 
-	grunt.task.registerTask('default', ['clean', 'copy:html', 'haml:compile', 'coffee:compile', 'copy:dependencies', 'sass', 'watch']);
+	grunt.task.registerTask('default', ['clean', 'copy:html', 'copy:img', 'haml:compile', 'coffee:compile', 'copy:dependencies', 'sass', 'watch']);
 };

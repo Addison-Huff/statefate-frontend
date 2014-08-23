@@ -1,17 +1,17 @@
 define [
 	'backbone',
-	'router'
+	'router',
+	'view/index'
 ], (
 	Backbone,
-	router
+	router,
+	IndexView
 ) ->
 	app =
 		main: ->
 			$(document).foundation()
-			router.on 'route:change', (path) ->
-
-				require ['view/index'], (View) ->
-					v = new View()
-					v.render()
+			
+			view = new IndexView
+			view.render()
 
 			Backbone.history.start pushState: true

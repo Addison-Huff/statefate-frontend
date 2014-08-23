@@ -20,14 +20,11 @@ define [
 
 		clickProtest: (e) ->
 			e.preventDefault()
-			router.navigate e.target.pathname
+			router.navigate e.target.pathname, trigger: true
 
 		clickLogin: (e) ->
 			e.preventDefault()
-			require ['view/user/login-modal'], (LoginModalView) =>
-				@loginView = @loginView || new LoginModalView()
-				@loginView.render()
-				@loginView.open()
+			router.navigate e.target.pathname, trigger: true
 
 		render: ->
 			@$el.html @template()
