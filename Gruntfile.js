@@ -77,7 +77,12 @@ module.exports = function(grunt) {
 			var lines = ('' + fs.readFileSync(path)).replace(/\t/g, function(tab) {
 				return '  ';
 			});
-			var amdjs = haml.amd(lines);
+			try{
+				var amdjs = haml.amd(lines);
+			}
+			catch(e) {
+				console.error(e);
+			}
 			var targetPath = path.replace(/^app\/haml|haml$/g, '');
 			grunt.file.write(grunt.config.get('buildDir') + '/js/template/' + targetPath + 'js', amdjs);
 		});
