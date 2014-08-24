@@ -1,11 +1,26 @@
 $black: #000;
 
-body { background: url(/img/protest.jpg); }
+body,
+#foreground { min-height: 100%; position:absolute; top:0; bottom:0; left:0; right:0; }
 
-.top-bar { background: none; margin-top: 10px; }
-.top-bar .title-area { background: $black; }
+#background { background: url(/img/protest.jpg); height: 100%; }
 
-#main { text-align: center; }
+#header { z-index: 1; position: absolute; width: 100%; }
+#header .top-bar { background: none; margin-top: 10px; }
+#header .top-bar .login,
+#header .top-bar .title-area { background: $black; }
+
+#body { overflow: hidden; min-height:100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+
+#footer { background: $black; position: absolute; bottom: 0; width: 100%; color: white; padding: 20px; font-size: 11px; }
+#footer .copyright { display: inline; }
+#footer .links { float: right; }
+#footer .links li { display: inline-block; margin-right: 10px; font-size: 11px; }
+
+.mission { text-align: center; padding-bottom: 50px; margin-top: 100px; }
+.mission * { color: white; }
+
+.protests { background: white; min-height: 100%; }
 
 #login { margin-top: 150px; }
 #login label { color: #ddd; }

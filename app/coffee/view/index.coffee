@@ -1,15 +1,19 @@
 define [
 	'backbone',
-	'view/topnav'
+	'view/topnav',
+	'view/footer'
 ], (
 	Backbone,
-	TopnavView
+	TopnavView,
+	FooterView
 ) ->
 	IndexView = Backbone.View.extend
-		el: 'body'
+		el: '#foreground'
 		initialize: (options) ->
 			options ?= {}
 			@topnav = new TopnavView
+			@footer = new FooterView
 
 		render: ->
 			@topnav.render()
+			@footer.render()
