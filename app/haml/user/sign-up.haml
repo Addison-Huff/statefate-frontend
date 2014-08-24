@@ -1,0 +1,34 @@
+.row#sign-up
+	.column.large-2 &nbsp;
+
+	.column.large-4.social
+		.row.login
+			%button.button.facebook-btn
+				Sign in with Facebook
+		.row.login
+			%button.button.twitter-btn
+				Sign in with Twitter
+
+	%form.large-4.column
+		.row.username
+			.large-12.column
+				%label Username
+					%input{ placeholder: 'john.doe', type: 'text' }
+		.row.username-confirm
+			.large-12.column
+				%label Username Confirm
+					%input{ type: 'text', placeholder: 'john.doe' }
+		.row.password
+			.large-12.column
+				%label Username
+					%input{ type: 'password' }
+		.row.password-confirm
+			.large-12.column
+				%label Password Confirm
+					%input{ type: 'password' }
+
+		.row.login
+			%button.button.create-btn
+				Sign Up
+
+	.column.large-2 &nbsp;
