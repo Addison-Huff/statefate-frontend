@@ -32,7 +32,6 @@ define [
 
 		logout: ->
 			state.user.logout()
-			state.page.topnav.render()
 			this.navigate '/', trigger: true
 
 		'sign-up': ->
