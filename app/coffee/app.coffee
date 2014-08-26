@@ -1,17 +1,24 @@
 define [
 	'backbone',
 	'router',
+	'state',
+	'model/user',
 	'view/index'
 ], (
 	Backbone,
 	router,
+	state,
+	UserModel,
 	IndexView
 ) ->
 	app =
 		main: ->
 			$(document).foundation()
-			
-			view = new IndexView
-			view.render()
+
+			state.user = new UserModel
+			state.user.identify force: true
+
+			state.page = new IndexView
+			state.page.render()
 
 			Backbone.history.start pushState: true

@@ -37,13 +37,15 @@ body,
 
 $userFormOffset: 100px;
 
-#login { margin-top: $userFormOffset; }
-#login label { color: #ddd; }
-#login .row { background: $black; }
-#login .username { padding-top: 20px; }
-#login .button { width: 100%; margin-bottom: 0; }
-#login .row.forgot,
-#login .forgot-btn { background: transparent; }
+#login {
+	margin-top: $userFormOffset;
+	label { color: #ddd; }
+	.row { background: $black; }
+	.username { padding-top: 20px; }
+	.button { width: 100%; margin-bottom: 0; }
+	.row.forgot,
+	.forgot-btn { background: transparent; }
+}
 
 #sign-up {
 	margin-top: $userFormOffset;
@@ -58,8 +60,9 @@ $userFormOffset: 100px;
 		text-align: center; margin-right: 10px; margin-top: 70px; padding: 20px 10px;
 		.button { width: 90%; text-align: left; margin: 5px 0; font-size: 12px; }
 	}
-
 }
 
-#four-oh-four { text-align: center; }
-#four-oh-four * { color: #ddd; }
+#four-oh-four {
+	text-align: center;
+	* { color: #ddd; }
+}

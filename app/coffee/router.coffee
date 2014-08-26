@@ -1,11 +1,14 @@
 define [
-	'backbone'
+	'backbone',
+	'state'
 ], (
-	Backbone
+	Backbone,
+	state
 ) ->
 	Router = Backbone.Router.extend
 		routes:
 			'': 'index'
+			'user/logout': 'logout'
 			'user/login': 'login'
 			'user/sign-up': 'sign-up'
 			'*path': '404'
@@ -26,6 +29,11 @@ define [
 			require ['view/user/login'], (LoginView) =>
 				@loginView ?= new LoginView
 				@loginView.render()
+
+		logout: ->
+			state.user.logout()
+			state.page.topnav.render()
+			this.navigate '/', trigger: true
 
 		'sign-up': ->
 			require ['view/user/sign-up'], (SignUpView) =>

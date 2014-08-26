@@ -1,12 +1,20 @@
 define [
 	'backbone',
-	'template/topnav'
+	'template/topnav',
+	'state'
 ], (
 	Backbone,
-	template
+	template,
+	state
 ) ->
 	TopnavView = Backbone.View.extend
 		el: '#header'
+		initialize: ->
+			@listenTo state.user, 'logout login', @render
 
 		render: ->
-			@$el.html template()
+			console.log 'calling render'
+			state.user.identify()
+				.always =>
+					console.log 'rendering with', state.user
+					@$el.html template(user: state.user)

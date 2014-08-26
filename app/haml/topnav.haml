@@ -6,9 +6,17 @@
 
 	%section.top-bar-section
 		%ul.right
+			- if (user.loggedIn) {
 			%li.active
 				%a.protest{ href: '/issue/create' } Protest
+			%li
+				%a.account{ href: '/user/account' }
+					= user.attributes.username
+			%li
+				%a.logout{ href: '/user/logout' } Logout
+			- } else {
 			%li
 				%a.login{ href: '/user/login' } Login
 			%li
 				%a.sign-up{ href: '/user/sign-up' } Sign Up
+			- }

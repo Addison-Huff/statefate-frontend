@@ -1,4 +1,4 @@
-requirejs.config {
+requirejs.config
 	baseUrl: '/js/'
 	paths:
 		backbone: 'lib/backbone'
@@ -14,4 +14,3 @@ requirejs.config {
 	deps: ['app', 'foundation']
 	callback: (app) ->
 		app.main()
-}
