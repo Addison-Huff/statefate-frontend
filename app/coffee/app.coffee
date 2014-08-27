@@ -16,7 +16,7 @@ define [
 			$(document).foundation()
 
 			state.user = new UserModel
-			state.user.identify force: true
+			state.user.identify()
 
 			state.page = new IndexView
 			state.page.render()

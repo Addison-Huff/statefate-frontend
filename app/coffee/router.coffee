@@ -26,13 +26,16 @@ define [
 				@homeView.render()
 
 		login: ->
-			require ['view/user/login'], (LoginView) =>
-				@loginView ?= new LoginView
-				@loginView.render()
+			if state.user.isLoggedIn()
+				@navigate '/user/account', trigger: true
+			else
+				require ['view/user/login'], (LoginView) =>
+					@loginView ?= new LoginView
+					@loginView.render()
 
 		logout: ->
 			state.user.logout()
-			this.navigate '/', trigger: true
+			@navigate '/', trigger: true
 
 		'sign-up': ->
 			require ['view/user/sign-up'], (SignUpView) =>

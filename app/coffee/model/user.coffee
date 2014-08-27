@@ -14,17 +14,16 @@ define [
 					password: @get 'password'
 				type: 'POST'
 			.then =>
-				@loggedIn = true
 				@trigger 'login'
 
-		hasToken: ->
+		isLoggedIn: ->
 			/session/.test document.cookie
 
 		identify: ->
-			if @hasToken and @loggedIn
+			if @isLoggedIn() and !@identified
 				@identified = @fetch
 					url: '/api/user'
-			else
+			else if !@isLoggedIn()
 				@identified = Backbone.$.Deferred()
 				@identified.reject()
 
@@ -33,7 +32,6 @@ define [
 		logout: ->
 			document.cookie = 'session=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT'
 			@identified = null
-			@loggedIn = false
 			@trigger 'logout'
 
 		parse: (data) ->
