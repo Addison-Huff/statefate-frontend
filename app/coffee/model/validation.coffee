@@ -5,6 +5,8 @@ define [
 ) ->
 	String::capitalize = ->
 		return @charAt(0).toUpperCase() + @substr(1)
+	String::camelToSpace = ->
+		return this.replace /([A-Z])/g, ' $1'
 
 	Validation =
 		methods:
@@ -31,7 +33,7 @@ define [
 				messages = for field, methods of @fields
 					fieldMessages = for method, arg of methods
 						if !Validation.methods[method].call @, attrs[field], arg
-							Validation.messages[method] field.capitalize()
+							Validation.messages[method] field.camelToSpace().capitalize()
 					fieldMessages = (message for message in fieldMessages when message)
 					if fieldMessages.length > 0
 						fieldMessage = {}
@@ -40,6 +42,6 @@ define [
 						fieldMessage
 
 				messages = (message for message in messages when message)
-				
+
 				if messages.length
 					_.flatten messages
