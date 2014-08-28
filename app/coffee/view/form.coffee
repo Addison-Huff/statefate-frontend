@@ -61,7 +61,6 @@ define [
 			@bindFormToModel()
 			@listenTo @formModel, 'invalid', (model, messages) ->
 				for message in messages
-					console.log 'message field', message.field
 					field = @$el.find "label.#{message.field}"
 					errors = field.addClass("error").find "small.error"
 					if !errors.length
@@ -71,9 +70,7 @@ define [
 					errors.text message.messages
 
 			@listenTo @formModel, 'change', (model) ->
-				console.log 'changing...', model
 				for field, __ of model.changed
-					console.log 'changed... ', field
 					@$el
 						.find "label.#{field}"
 						.removeClass "error"
