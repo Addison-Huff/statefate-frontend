@@ -38,8 +38,10 @@ define [
 			@navigate '/', trigger: true
 
 		'sign-up': ->
-			require ['view/user/sign-up'], (SignUpView) =>
+			require ['view/user/sign-up', 'model/sign-up'], (SignUpView, SignUpModel) =>
 				@signUpView ?= new SignUpView
+					formModel: new SignUpModel
+				
 				@signUpView.render()
 
 	return new Router

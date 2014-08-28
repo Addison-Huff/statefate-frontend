@@ -7,7 +7,7 @@ define [
 ) ->
 	FormView = Backbone.View.extend
 		el: 'form'
-		intialize: (options) ->
+		initialize: (options) ->
 			this.formModel = options?.formModel || new Backbone.Model()
 
 		log: console.log.bind console, '[FormView]'
@@ -22,7 +22,7 @@ define [
 
 		submit: (e) ->
 			e.preventDefault()
-			@formModel.save()
+			@formModel.isValid()
 
 		bindFormToModel: ->
 			form = @$el
@@ -58,22 +58,25 @@ define [
 			@formModel.set input.attr('name'), input.val()
 
 		render: ->
-			_.defer =>
-				@listenTo @formModel, 'invalid', (model, messages) ->
-					for message in messages
-						field = @$el.find "label.#{message.field}"
-						errors = field.addClass("error").find "small.error"
-						if !errors.length
-							errors = Backbone.$('<small class="error"><small>')
-							field.append errors
+			@bindFormToModel()
+			@listenTo @formModel, 'invalid', (model, messages) ->
+				for message in messages
+					console.log 'message field', message.field
+					field = @$el.find "label.#{message.field}"
+					errors = field.addClass("error").find "small.error"
+					if !errors.length
+						errors = Backbone.$('<small class="error"><small>')
+						field.append errors
 
-						errors.text message.messages
+					errors.text message.messages
 
-				@listenTo @formModel, 'change', (model) ->
-					for field, _ of model.changed
-						@$el
-							.find "label.#{field}"
-							.removeClass "error"
-							.find("small.error").remove()
+			@listenTo @formModel, 'change', (model) ->
+				console.log 'changing...', model
+				for field, __ of model.changed
+					console.log 'changed... ', field
+					@$el
+						.find "label.#{field}"
+						.removeClass "error"
+						.find("small.error").remove()
 
 	FormView

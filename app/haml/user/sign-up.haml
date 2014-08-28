@@ -12,20 +12,20 @@
 	%form.large-4.column
 		.row.username
 			.large-12.column
-				%label Username
-					%input{ placeholder: 'john.doe', type: 'text' }
+				%label.username Username
+					%input{ name: 'username', placeholder: 'john.doe', type: 'text' }
 		.row.username-confirm
 			.large-12.column
-				%label Username Confirm
-					%input{ type: 'text', placeholder: 'john.doe' }
+				%label.confirmUsername Username Confirm
+					%input{ name: 'confirmUsername', type: 'text', placeholder: 'john.doe' }
 		.row.password
 			.large-12.column
-				%label Password
-					%input{ type: 'password' }
+				%label.password Password
+					%input{ name: 'password', type: 'password' }
 		.row.password-confirm
 			.large-12.column
-				%label Password Confirm
-					%input{ type: 'password' }
+				%label.confirmPassword Password Confirm
+					%input{ name: 'confirmPassword', type: 'password' }
 
 		.row.login
 			%button.button.create-btn

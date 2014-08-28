@@ -1,16 +1,15 @@
 define [
-	'backbone',
+	'view/form',
 	'state',
 	'template/user/sign-up'
 ], (
-	Backbone,
+	FormView,
 	state,
 	template
 ) ->
-	LoginModalView = Backbone.View.extend
+	SignUpView = FormView.extend
 		el: '#body'
-		events:
-			'input input': 'inputInput'
-			
+
 		render: ->
 			@$el.html template()
+			FormView::render.call @
