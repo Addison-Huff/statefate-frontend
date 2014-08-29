@@ -11,6 +11,7 @@ define [
 			'user/logout': 'logout'
 			'user/login': 'login'
 			'user/sign-up': 'sign-up'
+			'protest/create': 'createProtest'
 			'*path': '404'
 
 		log: console.log.bind console, '[Router]'
@@ -37,11 +38,16 @@ define [
 			state.user.logout()
 			@navigate '/', trigger: true
 
+		createProtest: ->
+			require ['view/protest/create'], (CreateProtestView) ->
+				@createProtestView ?= new CreateProtestView
+				@createProtestView.render()
+				
 		'sign-up': ->
 			require ['view/user/sign-up', 'model/sign-up'], (SignUpView, SignUpModel) =>
 				@signUpView ?= new SignUpView
 					formModel: new SignUpModel
-				
+
 				@signUpView.render()
 
 	return new Router
