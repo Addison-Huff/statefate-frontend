@@ -18,11 +18,12 @@ define [
 			'click input[type="checkbox"]': 'clickCheckbox'
 			'keyup input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
 			'change input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
-			'submit': 'submit'
+			'submit': 'validate'
 
-		submit: (e) ->
+		validate: (e) ->
 			e.preventDefault()
-			@formModel.isValid()
+			if @formModel.isValid()
+				this.submit()
 
 		bindFormToModel: ->
 			form = @$el

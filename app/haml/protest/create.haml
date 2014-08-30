@@ -1,10 +1,19 @@
 %form#create-protest.row
 	.row.mission
-		%label.column.large-12 Mission
+		%label.column.large-12.mission Mission
 			%input{placeholder: 'Ex: Legalize Marijuana', name: 'mission', type: 'text' }
+	.row.threshold
+		%label.column.large-12.threshold Threshold
+			%input{value: '50', name: 'threshold', type: 'number' }
 	.row.location
-		%label.column.large-12 Location
+		%label.column.large-12.location Location
 			%input{type: 'text', name: 'location' }
+	.row.description
+		%label.column.large-12.description Description
+			%input{type: 'text', name: 'description' }
 	.row.tags
-		%label.column.large-12 Tags
+		%label.column.large-12.tags Tags
 			%input{type: 'text', name: 'tags' }
+	.row.create
+		%button.button.create-btn
+			Create

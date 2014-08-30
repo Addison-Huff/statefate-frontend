@@ -13,8 +13,7 @@ define [
 		el: '#body'
 
 		submit: (e) ->
-			if FormView::submit.call @, e
-				alert 'not implemented'
+			alert 'not implemented'
 
 		render: ->
 			@$el.html template()

@@ -39,8 +39,9 @@ define [
 			@navigate '/', trigger: true
 
 		createProtest: ->
-			require ['view/protest/create'], (CreateProtestView) ->
+			require ['view/protest/create', 'model/protest-form'], (CreateProtestView, ProtestFormModel) ->
 				@createProtestView ?= new CreateProtestView
+					formModel: new ProtestFormModel
 				@createProtestView.render()
 				
 		'sign-up': ->
