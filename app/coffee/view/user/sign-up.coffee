@@ -1,10 +1,12 @@
 define [
 	'view/form',
+	'jquery',
 	'state',
 	'router',
 	'template/user/sign-up'
 ], (
 	FormView,
+	$,
 	state,
 	router,
 	template
@@ -25,5 +27,6 @@ define [
 
 
 		render: ->
+			$('body').removeClass().addClass('sign-up')
 			@$el.html template()
 			FormView::render.call @

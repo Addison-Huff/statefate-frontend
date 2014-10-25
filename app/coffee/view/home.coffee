@@ -8,4 +8,5 @@ define [
 	IndexView = Backbone.View.extend
 		el: '#body'
 		render: ->
+			Backbone.$('body').removeClass().addClass 'home'
 			@$el.html template()

@@ -35,8 +35,11 @@ define [
 			validate: (attrs) ->
 				messages = for field, methods of @fields
 					fieldMessages = for method, arg of methods
-						if !Validation.methods[method].call @, attrs[field], arg
+						validationMethod = Validation.methods[method]
+						if validationMethod && !validationMethod.call @, attrs[field], arg
 							Validation.messages[method] field.camelToSpace().capitalize(), arg
+						else if @fields[field].type == 'integer'
+							@[field] = parseInt(@[field])
 					fieldMessages = (message for message in fieldMessages when message)
 					if fieldMessages.length > 0
 						fieldMessage = {}

@@ -14,7 +14,7 @@ define [
 	app =
 		main: ->
 			$(document).foundation()
-
+			
 			state.user = new UserModel
 			state.user.identify()
 

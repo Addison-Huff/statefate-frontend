@@ -1,73 +1,128 @@
 $black: #000;
-
-body,
-#foreground { min-height: 100%; position:absolute; top:0; bottom:0; left:0; right:0; }
-
-#background { background: url(/img/protest.jpg); height: 100%; }
+$userFormOffset: 100px;
 
 #header {
-	z-index: 1; position: absolute; width: 100%;
+	z-index: 1; 
+	position: absolute; 
+	width: 100%;
 	.top-bar {
-		background: none; margin-top: 10px;
-		.login, .title-area, .sign-up { background: $black;
+		background: none; 
+		margin-top: 10px;
+		.login, 
+		.title-area,
+		.sign-up {
+			background: $black;
 			&:hover {
-				&:not(.title-area) { background-color: #333; }
+				&:not(.title-area) { 
+					background-color: #333;
+				}
 			}
 		}
 	}
 }
 
-#body { overflow: hidden; min-height:100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
-
 #footer {
-	background: $black; position: absolute; bottom: 0; width: 100%; color: white; padding: 20px; font-size: 11px;
-	.copyright { display: inline; }
+	background: $black; 
+	position: absolute; 
+	bottom: 0; 
+	width: 100%; 
+	color: white; 
+	padding: 20px; 
+	font-size: 11px;
+	.copyright { 
+		display: inline;
+	}
 	.links {
 		float: right;
-		li { display: inline-block; margin-right: 10px; font-size: 11px; }
+		li { 
+			display: inline-block; 
+			margin-right: 10px; 
+			font-size: 11px;
+		}
 	}
 }
 
-#body .objective {
-	text-align: center; padding-bottom: 50px; margin-top: 100px;
-	> * { color: white; }
+.home #body {
+	text-align: center;
+	.objective {
+		padding-top: 75px;
+		background: url(/img/protest.jpg);
+		h1 {
+			color: white;
+		}
+		.column.large-12 {
+			padding: 0 150px;
+		}
+	}
 }
 
-#body .protests { background: white; min-height: 100%; }
-
-$userFormOffset: 100px;
+body.create-protest,
+body.sign-up,
+body.login {
+	background: url(/img/protest.jpg)
+}
 
 #login {
 	margin-top: $userFormOffset;
-	label { color: #ddd; }
-	.row { background: $black; }
-	.username { padding-top: 20px; }
-	.button { width: 100%; margin-bottom: 0; }
+	label {
+		color: #ddd;
+	}
+	.row { 
+		background: $black;
+	}
+	.username { 
+		padding-top: 20px;
+	}
+	.button { 
+		width: 100%; 
+		margin-bottom: 0;
+	}
 	.row.forgot,
-	.forgot-btn { background: transparent; }
+	.forgot-btn { 
+		background: transparent;
+	}
 }
 
 #sign-up {
-	margin-top: $userFormOffset;
-	form, .social { background: $black; padding: 20px auto; }
-	.button { width: 100%; margin-bottom: 0; }
+	form, .social {
+		background: $black;
+		padding: $userFormOffset auto;
+	}
+	.button { 
+		width: 100%; 
+		margin-bottom: 0;
+	}
 	form {
 		padding: 20px 15px 0;
-		label { color: white; }
+		label {
+			color: white;
+		}
 	}
 
 	.social {
-		text-align: center; margin-right: 10px; margin-top: 70px; padding: 20px 10px;
-		.button { width: 90%; text-align: left; margin: 5px 0; font-size: 12px; }
+		text-align: center; 
+		margin-right: 10px; 
+		margin-top: 170px; 
+		padding: 20px 10px;
+		.button { 
+			width: 90%;
+			text-align: left;
+			margin: 5px 0;
+			font-size: 12px;
+		}
 	}
 }
 
 #create-protest {
-	margin-top: $userFormOffset;
-	label { color: white; }
+	padding-top: 150px;
+	label { 
+		color: white;
+	}
 }
 
 #four-oh-four {
 	text-align: center;
-	* { color: #ddd; }
+	* {
+		color: #ddd;
+	}
 }

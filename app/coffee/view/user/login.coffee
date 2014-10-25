@@ -29,4 +29,5 @@ define [
 					console.log res.message
 
 		render: ->
+			Backbone.$('body').removeClass().addClass('login')
 			@$el.html template()

@@ -17,9 +17,9 @@ define [
 			threshold:
 				required: true
 				min: 50
+				number: true,
+				type: 'integer'
 
 			address:
 				required: true
 
-			location:
-				required: true

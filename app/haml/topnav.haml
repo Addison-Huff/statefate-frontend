@@ -11,7 +11,7 @@
 				%a.protest{ href: '/protest/create' } Protest
 			%li
 				%a.account{ href: '/user/account' }
-					= user.attributes.username
+					= user.get('username')
 			%li
 				%a.logout{ href: '/user/logout' } Logout
 			- } else {

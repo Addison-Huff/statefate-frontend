@@ -10,7 +10,7 @@ define [
 	router
 ) ->
 	IndexView = Backbone.View.extend
-		el: '#foreground'
+		el: 'body'
 		initialize: (options) ->
 			options ?= {}
 			@topnav = new TopnavView
