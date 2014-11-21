@@ -3,7 +3,7 @@ define [
 ], (
 	FormModel
 ) ->
-	ProtestFormModel = FormModel.extend
+	window.ProtestModel = ProtestFormModel = FormModel.extend
 		fields:
 			description:
 				required: true
@@ -18,8 +18,7 @@ define [
 				required: true
 				min: 50
 				number: true,
-				type: 'integer'
+				type: Number
 
 			address:
 				required: true
-

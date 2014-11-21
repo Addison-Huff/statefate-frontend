@@ -10,18 +10,21 @@ define [
 
 	Validation =
 		methods:
-			number: (val, arg) ->
-				Validation.methods.pattern val, /^\d+$/
-			pattern: (val, arg) ->
+			number: (val, field, arg) ->
+				Validation.methods.pattern (val || '').toString(), field, /^\d+$/
+			pattern: (val, field, arg) ->
 				arg.test (val || '').toString()
-			required: (val, arg) ->
-				Validation.methods.pattern val, /[^\s]/
-			date: (val, arg) ->
-				Validation.methods.pattern val, /^\d+-\d{2}-\d{2}$/
-			confirm: (val, otherField) ->
+			required: (val, field, arg) ->
+				Validation.methods.pattern (val || '').toString(), field, /[^\s]/
+			date: (val, field, arg) ->
+				Validation.methods.pattern (val || '').toString(), field, /^\d+-\d{2}-\d{2}$/
+			confirm: (val, field, otherField) ->
 				@get(otherField) == val
-			min: (val, min) ->
+			min: (val, field, min) ->
 				min <= val
+			type: (val, field, Type) ->
+				@.set field, (new Type(val)).valueOf()
+
 
 		messages:
 			required: (field) -> "#{field} is required"
@@ -36,10 +39,8 @@ define [
 				messages = for field, methods of @fields
 					fieldMessages = for method, arg of methods
 						validationMethod = Validation.methods[method]
-						if validationMethod && !validationMethod.call @, attrs[field], arg
+						if validationMethod && !validationMethod.call @, attrs[field], field, arg
 							Validation.messages[method] field.camelToSpace().capitalize(), arg
-						else if @fields[field].type == 'integer'
-							@[field] = parseInt(@[field])
 					fieldMessages = (message for message in fieldMessages when message)
 					if fieldMessages.length > 0
 						fieldMessage = {}
