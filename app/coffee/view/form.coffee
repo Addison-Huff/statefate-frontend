@@ -18,6 +18,7 @@ define [
 			'click input[type="checkbox"]': 'clickCheckbox'
 			'keyup input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
 			'change input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
+			'change textarea': 'changeInput'
 			'submit': 'validate'
 
 		validate: (e) ->

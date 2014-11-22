@@ -155,10 +155,15 @@ body.login {
 }
 
 body {
-	input[type="text"] {
+	textarea,
+	input[type="text"],
+	input[type="number"] {
 		border: none;
 		border-left: 5px solid black;
 		background:$grey;
+	}
+	textarea {
+		height: 100px;
 	}
 	label.error > input {
 		border-color: $errorRed;
