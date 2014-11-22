@@ -1,30 +1,30 @@
 %form#create-protest.row
 	.row.mission
 		%label.column.large-12.mission Mission
-			%input{placeholder: 'Ex: Legalize Marijuana', name: 'mission', type: 'text' }
+			%input{placeholder: 'Ex: Legalize Marijuana', name: 'mission', type: 'text', value: "#{mission}" }
 	.row.image-and-location
 		.column.large-6.image
 			Something goes here!
 		.column.large-6.location
 			.row
 				%label.column.large-12.street Street
-					%input{type: 'text', name: 'street' }
+					%input{type: 'text', name: 'street', value: "#{street}" }
 				%label.column.large-12.city City
-					%input{type: 'text', name: 'city' }
+					%input{type: 'text', name: 'city', value: "#{city}" }
 				%label.column.large-12.state State
-					%input{type: 'text', name: 'state' }
+					%input{type: 'text', name: 'state', value: "#{state}" }
 				%label.column.large-12.zip Zip
-					%input{type: 'text', name: 'zip' }
+					%input{type: 'text', name: 'zip', value: "#{zip}" }
 	.row.tags
 		%label.column.large-12.threshold Threshold
-			%input{value: '50', name: 'threshold', type: 'number' }
+			%input{value: "#{threshold}", name: 'threshold', type: 'number' }
 	.row.address
 	.row.description
 		%label.column.large-12.description Description
-			%input{type: 'text', name: 'description' }
+			%input{type: 'text', name: 'description', value: "#{description}" }
 	.row.tags
 		%label.column.large-12.tags Tags
-			%input{type: 'text', name: 'tags' }
+			%input{type: 'text', name: 'tags', value: "#{tags}" }
 	.row.create
 		%button.button.create-btn
 			Create
