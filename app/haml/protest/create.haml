@@ -2,12 +2,23 @@
 	.row.mission
 		%label.column.large-12.mission Mission
 			%input{placeholder: 'Ex: Legalize Marijuana', name: 'mission', type: 'text' }
-	.row.threshold
+	.row.image-and-location
+		.column.large-6.image
+			Something goes here!
+		.column.large-6.location
+			.row
+				%label.column.large-12.street Street
+					%input{type: 'text', name: 'street' }
+				%label.column.large-12.city City
+					%input{type: 'text', name: 'city' }
+				%label.column.large-12.state State
+					%input{type: 'text', name: 'state' }
+				%label.column.large-12.zip Zip
+					%input{type: 'text', name: 'zip' }
+	.row.tags
 		%label.column.large-12.threshold Threshold
 			%input{value: '50', name: 'threshold', type: 'number' }
 	.row.address
-		%label.column.large-12.address Address
-			%input{type: 'text', name: 'address' }
 	.row.description
 		%label.column.large-12.description Description
 			%input{type: 'text', name: 'description' }

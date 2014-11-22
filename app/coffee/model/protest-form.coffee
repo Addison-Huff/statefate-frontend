@@ -20,5 +20,14 @@ define [
 				number: true,
 				type: Number
 
-			address:
+			state:
+				required: true
+
+			city:
+				required: true
+
+			zip:
+				required: true
+				
+			street:
 				required: true

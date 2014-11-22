@@ -1,5 +1,8 @@
 $black: #000;
 $userFormOffset: 100px;
+$grey: rgb(235, 235, 235);
+$blue: rgb(33,121,237);
+$errorRed: #f04124;
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 
 #header {
@@ -10,7 +13,7 @@ $userFormOffset: 100px;
 		background: none; 
 		margin-top: 10px;
 		.sign-up {
-			background: rgb(33,121,237) !important;
+			background: $blue !important;
 			font-family: 'Open Sans', Arial, sans-serif;
 		}
 		.title-area {
@@ -73,7 +76,6 @@ $userFormOffset: 100px;
 	}
 }
 
-body.create-protest,
 body.sign-up,
 body.login {
 	background: url(/img/protest.jpg)
@@ -105,15 +107,15 @@ body.login {
 	.row { 
 		background: $black;
 	}
-	.username { 
+	.username {
 		padding-top: 20px;
 	}
-	.button { 
-		width: 100%; 
+	.button {
+		width: 100%;
 		margin-bottom: 0;
 	}
 	.row.forgot,
-	.forgot-btn { 
+	.forgot-btn {
 		background: transparent;
 	}
 }
@@ -123,8 +125,8 @@ body.login {
 		background: $black;
 		padding: $userFormOffset auto;
 	}
-	.button { 
-		width: 100%; 
+	.button {
+		width: 100%;
 		margin-bottom: 0;
 	}
 	form {
@@ -135,11 +137,11 @@ body.login {
 	}
 
 	.social {
-		text-align: center; 
-		margin-right: 10px; 
-		margin-top: 170px; 
+		text-align: center;
+		margin-right: 10px;
+		margin-top: 170px;
 		padding: 20px 10px;
-		.button { 
+		.button {
 			width: 90%;
 			text-align: left;
 			margin: 5px 0;
@@ -150,8 +152,16 @@ body.login {
 
 #create-protest {
 	padding-top: 150px;
-	label { 
-		color: white;
+}
+
+body {
+	input[type="text"] {
+		border: none;
+		border-left: 5px solid black;
+		background:$grey;
+	}
+	label.error > input {
+		border-color: $errorRed;
 	}
 }
 
