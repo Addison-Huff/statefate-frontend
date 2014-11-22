@@ -3,7 +3,7 @@ define [
 ], (
 	FormModel
 ) ->
-	window.ProtestModel = ProtestFormModel = FormModel.extend
+	ProtestFormModel = FormModel.extend
 		fields:
 			description:
 				required: true
