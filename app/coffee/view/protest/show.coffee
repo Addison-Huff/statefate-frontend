@@ -5,10 +5,11 @@ define [
 	Backbone,
 	template
 ) ->
-	IndexView = Backbone.View.extend
-		el: '.protest'
+	ProtestView = Backbone.View.extend
 		initialize: (options) ->
 			@protest = options?.protest
 
 		render: ->
-			@$el.html template protest: @protest
+			@$el
+				.addClass 'protest'
+				.html template protest: @protest

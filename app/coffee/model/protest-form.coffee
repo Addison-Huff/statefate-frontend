@@ -18,8 +18,7 @@ define [
 				required: true
 				min: 50
 				number: true,
-				type: 'integer'
+				type: Number
 
 			address:
 				required: true
-

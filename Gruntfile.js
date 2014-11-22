@@ -95,7 +95,7 @@ module.exports = function(grunt) {
 			}
 			var lines = '' + fs.readFileSync(path);
 			try {
-				var js = coffee.compile(lines);
+				var js = coffee.compile(lines, { sourceMap: true });
 			}
 			catch(e) {
 				console.error(e.message);
@@ -104,7 +104,9 @@ module.exports = function(grunt) {
 				throw Error('Could not compile coffee compile');
 			}
 			var targetPath = path.replace(/^app\/coffee|coffee$/g, 'js');
-			grunt.file.write(grunt.config.get('buildDir') + '/' + targetPath, js);
+			grunt.file.write(grunt.config.get('buildDir') + '/' + targetPath, js.js);
+			//targetPath = path.replace(/^app\/coffee|coffee$/g, 'map');
+			//grunt.file.write(grunt.config.get('buildDir') + '/' + targetPath, js.v3SourceMap);
 		});
 	});
 

@@ -22,8 +22,9 @@ define [
 				@fourOhFourView.render()
 
 		index: ->
-			require ['view/home'], (HomeView) =>
-				@homeView ?= new HomeView
+			require ['view/home', 'collection/protests'], (HomeView, Protests) =>
+				@protests ?= new Protests
+				@homeView ?= new HomeView(collection: @protests)
 				@homeView.render()
 
 		login: ->
