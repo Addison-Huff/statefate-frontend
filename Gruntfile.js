@@ -67,40 +67,47 @@ module.exports = function(grunt) {
 		grunt.file.copy('bower_components/fastclick/lib/fastclick.js', buildDir + '/js/lib/fastclick.js');
 		grunt.file.copy('bower_components/foundation/js/foundation.min.js', buildDir + '/js/lib/foundation.js');
 		grunt.file.copy('bower_components/foundation/css/foundation.css', buildDir + '/css/foundation.css');
+		grunt.file.recurse('bower_components/foundation-icons', function(path) {
+			var targetPath = path.replace(/^bower_components\/foundation-icons/g, buildDir + '/icons');
+			grunt.file.copy(path, targetPath)
+		});
 	});
 
 	grunt.task.registerTask('haml:compile', 'Compile haml templates', function() {
 		grunt.file.recurse('app/haml', function(path) {
-			if(!/\.haml$/.test(path)) {
-					return;
+			if (!/\.haml$/.test(path)) {
+				return;
 			}
 			var lines = ('' + fs.readFileSync(path)).replace(/\t/g, function(tab) {
 				return '  ';
 			});
-			try{
+			try {
 				var amdjs = haml.amd(lines);
 			}
-			catch(e) {
+			catch (e) {
 				console.error(e);
 			}
 			var targetPath = path.replace(/^app\/haml|haml$/g, '');
 			grunt.file.write(grunt.config.get('buildDir') + '/js/template/' + targetPath + 'js', amdjs);
 		});
+
 	});
 
 	grunt.task.registerTask('coffee:compile', 'Compile coffee', function() {
 		grunt.file.recurse('app/coffee', function(path) {
-			if(!/\.coffee$/.test(path)) {
+			if (!/\.coffee$/.test(path)) {
 				return;
 			}
 			var lines = '' + fs.readFileSync(path);
 			try {
-				var js = coffee.compile(lines, { sourceMap: true });
+				var js = coffee.compile(lines, {
+					sourceMap: true
+				});
 			}
-			catch(e) {
+			catch (e) {
 				console.error(e.message);
 				console.error(path, e.location.first_line + ':' + e.location.first_column);
-				console.error(lines.split('\n').slice(e.location.first_line-3, e.location.last_line+2).join('\n'));
+				console.error(lines.split('\n').slice(e.location.first_line - 3, e.location.last_line + 2).join('\n'));
 				throw Error('Could not compile coffee compile');
 			}
 			var targetPath = path.replace(/^app\/coffee|coffee$/g, 'js');

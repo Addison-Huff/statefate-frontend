@@ -1,6 +1,7 @@
 $black: #000;
 $userFormOffset: 100px;
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
+@import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
 
 #header {
 	z-index: 1; 
@@ -85,12 +86,15 @@ body.login {
 		font-size: 18px;
 		margin-top: 10px;
 	}
+	p {
+		float: left;
+	}
 	.button{
-		margin: 0.5rem 0.2rem 0.5rem 0.2rem;
 		margin: 0.5rem 0.2rem 0.5rem 0.2rem;
 		padding: 1rem 1rem 0.9rem 1rem;
 		font-size: 12px;
 		background: rgb(48, 48, 48);
+		float: left;
 	}
 	.row{
 		max-height: 100%;
@@ -172,3 +176,16 @@ body.login {
 .column, .columns{
   min-height: 1px;
 }
+
+/*Foundicon Settings*/
+
+.size-12 { font-size: 12px; }
+.size-14 { font-size: 14px; }
+.size-16 { font-size: 16px; }
+.size-18 { font-size: 18px; }
+.size-21 { font-size: 21px; }
+.size-24 { font-size: 24px; }
+.size-36 { font-size: 36px; }
+.size-48 { font-size: 48px; }
+.size-60 { font-size: 60px; }
+.size-72 { font-size: 72px; }
