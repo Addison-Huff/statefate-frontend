@@ -1,5 +1,6 @@
 $black: #000;
 $userFormOffset: 100px;
+@import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 
 #header {
 	z-index: 1; 
@@ -8,9 +9,19 @@ $userFormOffset: 100px;
 	.top-bar {
 		background: none; 
 		margin-top: 10px;
+		.sign-up {
+			background: rgb(33,121,237) !important;
+			font-family: 'Open Sans', Arial, sans-serif;
+		}
+		.title-area {
+			.home {
+				font-family: 'Roboto Slab', Arial, serif;
+			}
+		}
 		.login, 
 		.title-area,
 		.sign-up {
+			font-weight: 400;
 			background: $black;
 			&:hover {
 				&:not(.title-area) { 
@@ -23,7 +34,7 @@ $userFormOffset: 100px;
 
 #footer {
 	background: $black; 
-	position: absolute; 
+	position: relative; 
 	bottom: 0; 
 	width: 100%; 
 	color: white; 
@@ -45,13 +56,19 @@ $userFormOffset: 100px;
 .home #body {
 	text-align: center;
 	.objective {
+		height: 350px;
+		padding: 140px 0 0 0;
 		padding-top: 75px;
 		background: url(/img/protest.jpg);
 		h1 {
 			color: white;
+			font-size: 20px;
+			font-family: 'Roboto Slab', Arial, serif;
 		}
-		.column.large-12 {
-			padding: 0 150px;
+		.column {
+			.button {
+				width:200px;
+			}
 		}
 	}
 }
@@ -60,6 +77,14 @@ body.create-protest,
 body.sign-up,
 body.login {
 	background: url(/img/protest.jpg)
+}
+
+.search{
+	h1 {
+		text-align: left;
+		font-size: 18px;
+		margin-top: 10px;
+	}
 }
 
 #login {
@@ -125,4 +150,16 @@ body.login {
 	* {
 		color: #ddd;
 	}
+}
+
+.button {
+	background: rgb(33,121,237);
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*Settings Section*/
+
+.row{
+	max-width: 100%;
+
 }
