@@ -22,5 +22,5 @@ define [
 
 		render: ->
 			$('body').removeClass().addClass('create-protest')
-			@$el.html template()
+			@$el.html template @formModel.attributes
 			FormView::render.call @

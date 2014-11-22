@@ -4,6 +4,17 @@ define [
 	FormModel
 ) ->
 	ProtestFormModel = FormModel.extend
+		defaults: 
+			threshold: 50
+			mission: ''
+			description: ''
+			tags: ''
+			state: ''
+			city: ''
+			zip: ''
+			country: 'US'
+			street: ''
+
 		fields:
 			description:
 				required: true
@@ -20,5 +31,14 @@ define [
 				number: true,
 				type: Number
 
-			address:
+			state:
+				required: true
+
+			city:
+				required: true
+
+			zip:
+				required: true
+				
+			street:
 				required: true
