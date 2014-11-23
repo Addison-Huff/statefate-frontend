@@ -1,11 +1,13 @@
 define [
+	'view/base',
 	'backbone',
 	'underscore'
 ], (
+	BaseView,
 	Backbone,
 	_
 ) ->
-	FormView = Backbone.View.extend
+	FormView = BaseView.extend
 		el: 'form'
 		initialize: (options) ->
 			this.formModel = options?.formModel || new Backbone.Model()

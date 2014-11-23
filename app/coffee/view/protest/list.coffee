@@ -1,13 +1,13 @@
 define [
 	'view/protest/show',
-	'backbone',
+	'view/base',
 	'underscore'
 ], (
 	ProtestView,
-	Backbone,
+	BaseView,
 	_
 ) ->
-	ProtestListView = Backbone.View.extend
+	ProtestListView = BaseView.extend
 		el: '.protest-list'
 
 		append: (view) ->

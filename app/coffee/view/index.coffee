@@ -1,15 +1,15 @@
 define [
-	'backbone',
+	'view/base',
 	'view/topnav',
 	'view/footer',
 	'router'
 ], (
-	Backbone,
+	BaseView,
 	TopnavView,
 	FooterView,
 	router
 ) ->
-	IndexView = Backbone.View.extend
+	IndexView = BaseView.extend
 		el: 'body'
 		initialize: (options) ->
 			options ?= {}

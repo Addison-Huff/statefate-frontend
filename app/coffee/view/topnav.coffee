@@ -1,13 +1,13 @@
 define [
-	'backbone',
+	'view/base',
 	'template/topnav',
 	'state'
 ], (
-	Backbone,
+	BaseView,
 	template,
 	state
 ) ->
-	TopnavView = Backbone.View.extend
+	TopnavView = BaseView.extend
 		el: '#header'
 		initialize: ->
 			@listenTo state.user, 'logout login', @render

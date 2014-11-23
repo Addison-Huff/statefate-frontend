@@ -1,11 +1,11 @@
 define [
-	'backbone',
+	'view/base',
 	'template/protest/show'
 ], (
-	Backbone,
+	BaseView,
 	template
 ) ->
-	ProtestView = Backbone.View.extend
+	ProtestView = BaseView.extend
 		initialize: (options) ->
 			@protest = options?.protest
 

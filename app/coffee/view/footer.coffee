@@ -1,11 +1,11 @@
 define [
-	'backbone',
+	'view/base',
 	'template/footer'
 ], (
-	Backbone,
+	BaseView,
 	template
 ) ->
-	IndexView = Backbone.View.extend
+	IndexView = BaseView.extend
 		el: '#footer'
 		render: ->
 			@$el.html template(year: (new Date()).getFullYear())

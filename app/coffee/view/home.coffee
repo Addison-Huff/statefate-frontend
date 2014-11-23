@@ -1,18 +1,19 @@
 define [
 	'view/protest/list',
-	'backbone',
-	'template/home'
+	'view/base',
+	'template/home',
+	'backbone'
 ], (
 	ProtestList,
-	Backbone,
-	template
+	BaseView,
+	template,
+	Backbone
 ) ->
-	IndexView = Backbone.View.extend
+	IndexView = BaseView.extend
 		el: '#body'
 		initialize: (options) ->
 			@protestListView = new ProtestList( collection: @collection )
 			@listenTo @collection, 'sync', =>
-				console.log('syning!');
 				@protestListView.render()
 
 		render: ->
