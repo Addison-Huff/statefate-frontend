@@ -13,12 +13,17 @@ define [
 	router,
 	template
 ) ->
-	SignUpView = FormView.extend
+
+	CreateProtestView = FormView.extend
 		el: '#body'
 
 		submit: (e) ->
-			@protest ?= new ProtestModel(@formModel.attributes)
+			@protest = new ProtestModel(@formModel.attributes)
 			@protest.save()
+				.then (protest) ->
+					router.navigate '/protest/' + protest.id, trigger: true
+				.fail ->
+					# show some error
 
 		render: ->
 			$('body').removeClass().addClass('create-protest')

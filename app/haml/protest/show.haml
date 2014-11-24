@@ -1,2 +1,13 @@
-.title
-	= protest.get('title')
+.row
+	.column.title.large-12
+		= protest.get('title')
+	.column.image.large-12
+		%img{ href: "#{protest.getImgSrc()}" }
+	.column.background.large-12
+		= protest.get('background')
+	.column.goal.large-12
+		= protest.get('goal')
+	- if (protest.get('furtherReading')) {
+	.column.furtherReading.large-12
+		= protest.get('furtherReading')
+	- }

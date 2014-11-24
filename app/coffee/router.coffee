@@ -12,6 +12,7 @@ define [
 			'user/login': 'login'
 			'user/sign-up': 'signUp'
 			'protest/create': 'createProtest'
+			'protest/:id': 'showProtest'
 			'*path': '404'
 
 		log: console.log.bind console, '[Router]'
@@ -50,6 +51,14 @@ define [
 					formModel: new ProtestFormModel
 				@currentView.render()
 				
+		showProtest: (id) ->
+			@currentView?.stop()
+			require ['view/protest/show', 'model/protest'], (ShowProtestView, ProtestModel) =>
+				protest = new ProtestModel(id: id)
+				@currentView = new ShowProtestView protest: protest
+				protest.fetch().always =>
+					@currentView.render()
+
 		signUp: ->
 			@currentView?.stop()
 			require ['view/user/sign-up', 'model/sign-up'], (SignUpView, SignUpModel) =>

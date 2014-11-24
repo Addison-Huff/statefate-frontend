@@ -3,16 +3,19 @@ $userFormOffset: 100px;
 $grey: rgb(235, 235, 235);
 $blue: rgb(33,121,237);
 $errorRed: #f04124;
+
+$topMargin: 10px;
+
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 @import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
 
+
 #header {
 	z-index: 1; 
-	position: absolute; 
 	width: 100%;
+	position: relative;
 	.top-bar {
 		background: none; 
-		margin-top: 10px;
 		.sign-up {
 			background: $blue !important;
 			font-family: 'Open Sans', Arial, sans-serif;
@@ -155,9 +158,19 @@ body.login {
 }
 
 #create-protest {
-	padding-top: 150px;
+	padding-top: 100px;
 }
 
+body.protest-show {
+	#body.protest {
+		margin-top: $topMargin;
+	}
+}
+#body {
+	min-height: 100%;
+	position: relative;
+	top: -55px;
+}
 body {
 	textarea,
 	input[type="text"],
@@ -172,6 +185,8 @@ body {
 	label.error > input {
 		border-color: $errorRed;
 	}
+	padding-top: 10px;
+	height: 100%;
 }
 
 #four-oh-four {
