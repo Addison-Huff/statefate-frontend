@@ -45,11 +45,14 @@ define [
 			@navigate '/', trigger: true
 
 		createProtest: ->
-			@currentView?.stop()
-			require ['view/protest/create', 'model/protest-form'], (CreateProtestView, ProtestFormModel) =>
-				@currentView = new CreateProtestView
-					formModel: new ProtestFormModel
-				@currentView.render()
+			if not state.user.isLoggedIn()
+				@navigate '/user/login', trigger: true
+			else
+				@currentView?.stop()
+				require ['view/protest/create', 'model/protest-form'], (CreateProtestView, ProtestFormModel) =>
+					@currentView = new CreateProtestView
+						formModel: new ProtestFormModel
+					@currentView.render()
 				
 		showProtest: (id) ->
 			@currentView?.stop()

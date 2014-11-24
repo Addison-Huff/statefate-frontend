@@ -18,8 +18,18 @@
 				%h3 Further Reading
 				= protest.get('furtherReading')
 			- }
-	.column.creator-info.large-4
+	.column.event-info.large-4
 		.row
 			.column.creator
 				.headline
 					= "This protest is being run by #{protest.get('creator')} in #{protest.get('city')}, #{protest.get('state')}"
+		.row
+			.column.location
+				%label This protest is being held at
+				%em.street= protest.get('street')
+				%label Here's who's in so far
+				.followers
+		.row
+			.column.join
+				%button.button.join
+					Yes, let's do this!

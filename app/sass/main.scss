@@ -2,6 +2,7 @@ $black: #000;
 $userFormOffset: 100px;
 $grey: rgb(235, 235, 235);
 $blue: rgb(33,121,237);
+$darkBlue: rgb(13, 101, 217);
 $errorRed: #f04124;
 
 $topMargin: 10px;
@@ -9,22 +10,18 @@ $topMargin: 10px;
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 @import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
 
+*,
+.top-bar-section ul li > a {
+	font-family: 'Roboto Slab', Arial, serif;
+}
+
 
 #header {
 	z-index: 1; 
 	width: 100%;
 	position: relative;
 	.top-bar {
-		background: none; 
-		.sign-up {
-			background: $blue !important;
-			font-family: 'Open Sans', Arial, sans-serif;
-		}
-		.title-area {
-			.home {
-				font-family: 'Roboto Slab', Arial, serif;
-			}
-		}
+		background: none;
 		.login, 
 		.title-area,
 		.sign-up {
@@ -217,8 +214,11 @@ body {
 }
 
 .button {
-	background: rgb(33,121,237);
+	background: $blue;
 	font-family: 'Open Sans', sans-serif;
+}
+.button:hover {
+	background-color: $darkBlue;
 }
 
 /*Global Foundation Settings Section*/
