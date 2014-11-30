@@ -10,46 +10,64 @@ define [
 			'': 'index'
 			'user/logout': 'logout'
 			'user/login': 'login'
-			'user/sign-up': 'sign-up'
+			'user/sign-up': 'signUp'
 			'protest/create': 'createProtest'
+			'protest/:id': 'showProtest'
 			'*path': '404'
 
 		log: console.log.bind console, '[Router]'
 
 		404: ->
+			@currentView?.stop()
 			require ['view/404'], (NotFoundView) =>
-				@fourOhFourView ?= new NotFoundView
-				@fourOhFourView.render()
+				@currentView = new NotFoundView
+				@currentView.render()
 
 		index: ->
+			@currentView?.stop()
 			require ['view/home', 'collection/protests'], (HomeView, Protests) =>
-				@protests ?= new Protests
-				@homeView ?= new HomeView(collection: @protests)
-				@homeView.render()
+				@protests = new Protests
+				@currentView = new HomeView(collection: @protests)
+				@currentView.render()
 
 		login: ->
+			@currentView?.stop()
 			if state.user.isLoggedIn()
 				@navigate '/user/account', trigger: true
 			else
 				require ['view/user/login'], (LoginView) =>
-					@loginView ?= new LoginView
-					@loginView.render()
+					@currentView = new LoginView
+					@currentView.render()
 
 		logout: ->
+			@currentView?.stop()
 			state.user.logout()
 			@navigate '/', trigger: true
 
 		createProtest: ->
-			require ['view/protest/create', 'model/protest-form'], (CreateProtestView, ProtestFormModel) =>
-				@createProtestView ?= new CreateProtestView
-					formModel: new ProtestFormModel
-				@createProtestView.render()
+			if not state.user.isLoggedIn()
+				@navigate '/user/login', trigger: true
+			else
+				@currentView?.stop()
+				require ['view/protest/create', 'model/protest-form'], (CreateProtestView, ProtestFormModel) =>
+					@currentView = new CreateProtestView
+						formModel: new ProtestFormModel
+					@currentView.render()
 				
-		'sign-up': ->
+		showProtest: (id) ->
+			@currentView?.stop()
+			require ['view/protest/show', 'model/protest'], (ShowProtestView, ProtestModel) =>
+				protest = new ProtestModel(id: id)
+				@currentView = new ShowProtestView protest: protest
+				protest.fetch().always =>
+					@currentView.render()
+
+		signUp: ->
+			@currentView?.stop()
 			require ['view/user/sign-up', 'model/sign-up'], (SignUpView, SignUpModel) =>
-				@signUpView ?= new SignUpView
+				@currentView = new SignUpView
 					formModel: new SignUpModel
 
-				@signUpView.render()
+				@currentView.render()
 
 	return new Router

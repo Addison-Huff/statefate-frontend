@@ -1,11 +1,11 @@
 define [
-	'backbone',
+	'view/base',
 	'template/404'
 ], (
-	Backbone,
+	BaseView,
 	template
 ) ->
-	TopnavView = Backbone.View.extend
+	TopnavView = BaseView.extend
 		el: '#body'
 
 		render: ->

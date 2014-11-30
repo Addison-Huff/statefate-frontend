@@ -2,27 +2,27 @@ $black: #000;
 $userFormOffset: 100px;
 $grey: rgb(235, 235, 235);
 $blue: rgb(33,121,237);
+$darkBlue: rgb(13, 101, 217);
 $errorRed: #f04124;
+
+$topMargin: 10px;
+
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 @import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
 @import url("/icons/foundation_icons_general/fonts/general_foundicons.eot");
 
+*,
+.top-bar-section ul li > a {
+	font-family: 'Roboto Slab', Arial, serif;
+}
+
+
 #header {
 	z-index: 1; 
-	position: absolute; 
 	width: 100%;
+	position: relative;
 	.top-bar {
-		background: none; 
-		margin-top: 10px;
-		.sign-up {
-			background: $blue !important;
-			font-family: 'Open Sans', Arial, sans-serif;
-		}
-		.title-area {
-			.home {
-				font-family: 'Roboto Slab', Arial, serif;
-			}
-		}
+		background: none;
 		.login, 
 		.title-area,
 		.sign-up {
@@ -164,18 +164,55 @@ body.login {
 }
 
 #create-protest {
-	padding-top: 150px;
+	padding-top: 100px;
 }
 
+body.protest-show {
+	#body.protest {
+		margin-top: $topMargin;
+		.image {
+			.foundicon-photo {
+				font-size: 400px;
+				line-height: 400px;
+			}
+		}
+		.creator-info .headline {
+			font-size: 10px;
+			line-height: 13px;
+			height: 45px;
+		}
+	}
+}
+
+#body {
+	min-height: 100%;
+	position: relative;
+	top: -55px;
+}
 body {
-	input[type="text"] {
+	textarea,
+	input[type="text"],
+	input[type="number"] {
 		border: none;
 		border-left: 5px solid black;
 		background:$grey;
 	}
+	textarea {
+		height: 100px;
+	}
 	label.error > input {
 		border-color: $errorRed;
 	}
+	padding-top: 10px;
+	height: 100%;
+}
+
+.headline {
+	padding: 10px 40px;
+	background: black;
+	color: white;
+	font-size: 16px;
+	line-height: 25px;
 }
 
 #four-oh-four {
@@ -186,8 +223,11 @@ body {
 }
 
 .button {
-	background: rgb(33,121,237);
+	background: $blue;
 	font-family: 'Open Sans', sans-serif;
+}
+.button:hover {
+	background-color: $darkBlue;
 }
 
 /*Global Foundation Settings Section*/

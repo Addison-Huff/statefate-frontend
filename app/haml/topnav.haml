@@ -7,8 +7,6 @@
 	%section.top-bar-section
 		%ul.right
 			- if (user.isLoggedIn()) {
-			%li.active
-				%a.protest{ href: '/protest/create' } Protest
 			%li
 				%a.account{ href: '/user/account' }
 					= user.get('username')

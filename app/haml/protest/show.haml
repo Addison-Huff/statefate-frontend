@@ -1,6 +1,34 @@
-.mission
-	= protest.get('mission')
-.description
-	= protest.get('description')
-.followers
-	= protest.get('followers')
+.row
+	.column.protest-info.large-8
+		.row
+			.column.title.large-12
+				.headline = protest.get('title')
+			.column.image.large-12
+				- if (protest.get('img')) {
+				%img{ href: "#{protest.get('img')}" }
+				-}
+			.column.background.large-12
+				%h3 The Background
+				= protest.get('background')
+			.column.goal.large-12
+				%h3 The Goal
+				= protest.get('goal')
+			- if (protest.get('furtherReading')) {
+			.column.furtherReading.large-12
+				%h3 Further Reading
+				= protest.get('furtherReading')
+			- }
+	.column.event-info.large-4
+		.row
+			.column.creator
+				.headline
+					= "This protest is being run by #{protest.get('creator')} in #{protest.get('city')}, #{protest.get('state')}"
+		.row
+			.column.location
+				%label This protest is being held at
+				%em.street= protest.get('street')
+				.followers
+		.row
+			.column.join
+				%button.button.join
+					Yes, let's do this!

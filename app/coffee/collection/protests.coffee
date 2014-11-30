@@ -8,6 +8,7 @@ define [
 	Protests = Backbone.Collection.extend
 		model: Protest
 		url: '/api/protest/search'
+
 		search: (lucene) ->
 			return @fetch data: q: lucene
 

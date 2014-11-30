@@ -6,20 +6,25 @@ define [
 	ProtestFormModel = FormModel.extend
 		defaults: 
 			threshold: 50
-			mission: ''
-			description: ''
+			goal: ''
+			title: ''
+			background: ''
 			tags: ''
 			state: ''
 			city: ''
 			zip: ''
 			country: 'US'
-			street: ''
+			street: '',
+			furtherReading: []
 
 		fields:
-			description:
+			background:
 				required: true
 
-			mission:
+			goal:
+				required: true
+
+			title:
 				required: true
 
 			tags:

@@ -34,5 +34,23 @@ define [
 			@identified = null
 			@trigger 'logout'
 
+		join: (protestId) ->
+			Backbone.$.ajax
+				url: "/api/protest/#{protestId}/join"
+				type: 'PUT'
+			.then =>
+				console.log 'joined'
+			.fail =>
+				console.log 'cant join'
+
+		leave: (protestId) ->
+			Backbone.$.ajax
+				url: "/api/protest/#{protestId}/leave"
+				type: 'PUT'
+			.then =>
+				console.log 'left'
+			.fail =>
+				console.log 'cant leave'
+
 		parse: (data) ->
 			data.user

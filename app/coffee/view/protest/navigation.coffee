@@ -1,11 +1,11 @@
 define [
-	'backbone',
+	'view/base',
 	'template/protest/navigation'
 ], (
-	Backbone,
+	BaseView,
 	template
 ) ->
-	ProtestNavigation = Backbone.View.extend
+	ProtestNavigation = BaseView.extend
 		el: '.protest-navigation'
 		render: ->
 			@el.html template()

@@ -1,15 +1,17 @@
 define [
-	'backbone',
+	'view/base',
 	'template/user/login',
 	'state',
-	'router'
+	'router',
+	'backbone'
 ], (
-	Backbone,
+	BaseView
 	template,
 	state,
-	router
+	router,
+	Backbone
 ) ->
-	LoginModalView = Backbone.View.extend
+	LoginModalView = BaseView.extend
 		el: '#body'
 		events:
 			'click .login-btn': 'clickLogin'

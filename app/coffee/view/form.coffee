@@ -1,11 +1,13 @@
 define [
+	'view/base',
 	'backbone',
 	'underscore'
 ], (
+	BaseView,
 	Backbone,
 	_
 ) ->
-	FormView = Backbone.View.extend
+	FormView = BaseView.extend
 		el: 'form'
 		initialize: (options) ->
 			this.formModel = options?.formModel || new Backbone.Model()
@@ -18,6 +20,7 @@ define [
 			'click input[type="checkbox"]': 'clickCheckbox'
 			'keyup input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
 			'change input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
+			'change textarea': 'changeInput'
 			'submit': 'validate'
 
 		validate: (e) ->

@@ -1,13 +1,15 @@
 define [
 	'view/protest/show',
-	'backbone',
+	'view/base',
+	'template/protest/listing',
 	'underscore'
 ], (
 	ProtestView,
-	Backbone,
+	BaseView,
+	listingTemplate,
 	_
 ) ->
-	ProtestListView = Backbone.View.extend
+	ProtestListView = BaseView.extend
 		el: '.protest-list'
 
 		append: (view) ->
@@ -17,4 +19,7 @@ define [
 		render: ->
 			@$el.html ''
 			@collection.each (protest) =>
-				@append new ProtestView( protest: protest )
+				@append new ProtestView
+					protest: protest
+					el: '<div/>'
+					template: listingTemplate

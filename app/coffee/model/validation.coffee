@@ -39,7 +39,6 @@ define [
 				messages = for field, methods of @fields
 					fieldMessages = for method, arg of methods
 						validationMethod = Validation.methods[method]
-						console.log 'validating ', field, arg
 						if validationMethod && !validationMethod.call @, attrs[field], field, arg
 							Validation.messages[method] field.camelToSpace().capitalize(), arg
 					fieldMessages = (message for message in fieldMessages when message)
