@@ -5,6 +5,7 @@ $blue: rgb(33,121,237);
 $errorRed: #f04124;
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 @import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
+@import url("/icons/foundation_icons_general/fonts/general_foundicons.eot");
 
 #header {
 	z-index: 1; 
@@ -97,6 +98,14 @@ body.login {
 		font-size: 12px;
 		background: rgb(48, 48, 48);
 		float: left;
+		i {
+			float:left;
+		}
+		div {
+			float:left;
+			font-size: 11px;
+			vertical-align: middle;
+		}
 	}
 	.row{
 		max-height: 100%;
