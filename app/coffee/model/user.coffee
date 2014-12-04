@@ -46,9 +46,15 @@ define [
 				console.log 'cant join'
 
 		isJoined: (protestId) ->
+			deferred = Backbone.$.Deferred()
 			if @isLoggedIn()
 				join = new Join protest_id: protestId
 				join.fetch()
+					.then -> deferred.resolve true
+					.fail -> deferred.resolve false
+			else
+				deferred.resolve false
+			deferred
 
 		leave: (protestId) ->
 			Backbone.$.ajax
