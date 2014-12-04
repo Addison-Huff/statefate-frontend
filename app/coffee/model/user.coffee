@@ -1,7 +1,9 @@
 define [
-	'backbone'
+	'backbone',
+	'model/join'
 ], (
-	Backbone
+	Backbone,
+	Join
 ) ->
 	UserModel = Backbone.Model.extend
 		urlRoot: '/api/user'
@@ -42,6 +44,11 @@ define [
 				console.log 'joined'
 			.fail =>
 				console.log 'cant join'
+
+		isJoined: (protestId) ->
+			if @isLoggedIn()
+				join = new Join protest_id: protestId
+				join.fetch()
 
 		leave: (protestId) ->
 			Backbone.$.ajax
