@@ -18,6 +18,6 @@ define [
 
 		render: ->
 			Backbone.$('body').removeClass().addClass 'home'
-			@collection.search '*:*'
 			@$el.html template()
 			@protestListView.setElement @$el.find '.protest-list'
+			@collection.search '*:*'
