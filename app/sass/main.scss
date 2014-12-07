@@ -11,6 +11,10 @@ $topMargin: 10px;
 @import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
 @import url("/icons/foundation_icons_general/fonts/general_foundicons.eot");
 
+body{
+	background:url(/img/Statefate-homepage-1.jpg);
+}
+
 *,
 .top-bar-section ul li > a {
 	font-family: 'Roboto Slab', Arial, serif;
@@ -58,12 +62,12 @@ $topMargin: 10px;
 }
 
 .home #body {
+	opacity: .5;
 	text-align: center;
 	.objective {
 		height: 350px;
 		padding: 140px 0 0 0;
 		padding-top: 75px;
-		background: url(/img/protest.jpg);
 		h1 {
 			color: white;
 			font-size: 20px;
@@ -115,6 +119,13 @@ body.login {
 	}
 	.row{
 		max-height: 100%;
+	}
+	.protest-list{
+		.row{
+			.protest .columns {
+				height:300px;
+			}
+		}
 	}
 }
 
