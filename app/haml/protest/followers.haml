@@ -2,8 +2,7 @@
 %label Here's who's in so far
 %ul.follower-list
 	- followers.each(function(follower) {
-	%li.follower
-		%img{ src: follower.get('img') }
+	%li.follower= follower.get('username')
 	- });
 	- if (total - followers.length > 0) {
 	%li.remaining= "+#{total - follwers.length}"

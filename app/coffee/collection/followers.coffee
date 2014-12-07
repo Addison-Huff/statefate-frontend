@@ -11,7 +11,6 @@ define [
 			@protest = options.protest
 			
 		url: ->
-			console.log 'sup'
 			"/api/protest/#{@protest.id}/followers"
 
 		parse: (data) ->

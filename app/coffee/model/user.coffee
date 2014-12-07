@@ -66,4 +66,4 @@ define [
 				console.log 'cant leave'
 
 		parse: (data) ->
-			data.user
+			data.user || data
