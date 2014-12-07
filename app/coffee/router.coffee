@@ -58,8 +58,11 @@ define [
 			@currentView?.stop()
 			require ['view/protest/show', 'model/protest'], (ShowProtestView, ProtestModel) =>
 				protest = new ProtestModel(id: id)
-				@currentView = new ShowProtestView protest: protest
-				protest.fetch().always =>
+				Backbone.$.when(protest.fetch(), state.user.isJoined(id)).always (_, isJoined) =>
+					@currentView = new ShowProtestView
+						protest: protest
+						isJoined: isJoined
+
 					@currentView.render()
 
 		signUp: ->

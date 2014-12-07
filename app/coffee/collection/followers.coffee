@@ -5,12 +5,13 @@ define [
 	User,
 	Backbone
 ) ->
-	Protests = Backbone.Collection.extend
+	Followers = Backbone.Collection.extend
 		model: User
 		initialize: (options) ->
 			@protest = options.protest
 			
 		url: ->
+			console.log 'sup'
 			"/api/protest/#{@protest.id}/followers"
 
 		parse: (data) ->

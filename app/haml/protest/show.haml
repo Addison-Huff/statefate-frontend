@@ -30,5 +30,10 @@
 				.followers
 		.row
 			.column.join
+				- if (isJoined) {
+				%button.button.disabled
+					You have joined
+				- } else {
 				%button.button.join
 					Yes, let's do this!
+				- }

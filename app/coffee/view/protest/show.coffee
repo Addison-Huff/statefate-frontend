@@ -13,6 +13,7 @@ define [
 		el: '#body'
 		initialize: (options) ->
 			@protest = options?.protest
+			@isJoined = options?.isJoined
 			@template = options?.template || template
 
 		events: 
@@ -27,7 +28,7 @@ define [
 
 			@$el
 				.addClass 'protest'
-				.html @template(protest: @protest)
+				.html @template(protest: @protest, isJoined: @isJoined)
 
 			if @$el.find '.followers'
 				@followers = new FollowersView protest: @protest
