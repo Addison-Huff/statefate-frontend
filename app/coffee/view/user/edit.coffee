@@ -27,6 +27,7 @@ define [
 		submit: (e) ->
 			@formModel.save( validate: true ).then =>
 				state.user.set @formModel.attributes
+				@alert 'Changes saved'
 
 		renderMap: ->
 			if @$el.find(@map?.el)?.length == 0
@@ -41,6 +42,7 @@ define [
 					@map.render()
 
 		render: ->
+			$('body').removeClass().addClass('edit-user')
 			@$el.html @template user: @user
 			@renderMap()
 			super()

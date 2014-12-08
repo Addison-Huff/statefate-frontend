@@ -231,6 +231,14 @@ body {
 	height: 100%;
 }
 
+.alert-box {
+	position: fixed;
+	top: 0;
+	text-align: center;
+	width: 100%;
+	z-index: 10;
+}
+
 .headline {
 	padding: 10px 40px;
 	background: black;
