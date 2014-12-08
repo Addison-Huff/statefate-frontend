@@ -23,7 +23,8 @@ define [
 			min: (val, field, min) ->
 				min <= val
 			type: (val, field, Type) ->
-				@.set field, (new Type(val)).valueOf()
+				if val != ''
+					@.set field, (new Type(val)).valueOf()
 
 
 		messages:

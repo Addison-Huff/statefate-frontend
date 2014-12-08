@@ -10,7 +10,7 @@ define [
 	TopnavView = BaseView.extend
 		el: '#header'
 		initialize: ->
-			@listenTo state.user, 'logout login', @render
+			@listenTo state.user, 'logout authenticated', @render
 
 		render: ->
 			state.user.identify()
