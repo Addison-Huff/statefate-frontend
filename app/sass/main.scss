@@ -116,6 +116,13 @@ body.login {
 	.row{
 		max-height: 100%;
 	}
+	.protest-list{
+		.row{
+			.protest .columns {
+				height:300px;
+			}
+		}
+	}
 }
 
 #login {

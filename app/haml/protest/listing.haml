@@ -1,10 +1,10 @@
 - for(var i=0; i<protests.length; i += 2) {
 .row
-	.column.large-6
+	.protest.columns.xlarge-6.large-6.medium-6.small-6
 		%a{ href: "/protest/#{protests.at(i).get('_yz_rk')}" }
 			= protests.at(i).get('title')
 	- if (protests.at(i + 1)) {
-	.column.large-6
+	.protest.columns.xlarge-6.large-6.medium-6.small-6
 		%a{ href: "/protest/#{protests.at(i+1).get('_yz_rk')}" }
 			= protests.at(i+1).get('title')
 	- }
