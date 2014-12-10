@@ -26,8 +26,9 @@ define [
 
 		submit: (e) ->
 			@formModel.save( validate: true ).then =>
+				@clearMessage()
 				state.user.set @formModel.attributes
-				@alert 'Changes saved'
+				@success 'Changes saved'
 
 		renderMap: ->
 			if @$el.find(@map?.el)?.length == 0

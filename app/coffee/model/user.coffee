@@ -31,7 +31,8 @@ define [
 					username: @get 'username'
 					password: @get 'password'
 				type: 'POST'
-			.then =>
+			.then (data) =>
+				@set data.user
 				@trigger 'authenticated'
 
 		isLoggedIn: ->
@@ -57,10 +58,6 @@ define [
 			$.ajax
 				url: "/api/protest/#{protestId}/join"
 				type: 'PUT'
-			.then =>
-				console.log 'joined'
-			.fail =>
-				console.log 'cant join'
 
 		isJoined: (protestId) ->
 			deferred = $.Deferred()
@@ -77,10 +74,6 @@ define [
 			$.ajax
 				url: "/api/protest/#{protestId}/leave"
 				type: 'PUT'
-			.then =>
-				console.log 'left'
-			.fail =>
-				console.log 'cant leave'
 
 		parse: (data) ->
 			data.user || data

@@ -29,39 +29,39 @@ define [
 		bindFormToModel: ->
 			form = @$el
 			@listenTo @formModel, 'change', (model, options) ->
-				_.each _.keys(model.changed), (attr) ->
-					value = model.changed[attr]
-					inputs = form.find "[name=\"#{attr}\"]"
+				if options?.ignore != true 
+					_.each _.keys(model.changed), (attr) ->
+						value = model.changed[attr]
+						inputs = form.find "[name=\"#{attr}\"]"
 
-					inputs
-						.filter '[type="radio"], [type="checkbox"]'
-						.filter "[value=\"#{value}\"]"
-						.prop 'checked', true
+						inputs
+							.filter '[type="radio"], [type="checkbox"]'
+							.filter "[value=\"#{value}\"]"
+							.prop 'checked', true
 
-					inputs
-						.filter 'input:not([type="radio"], [type="checkbox"]), select'
-						.val value
+						inputs
+							.filter 'input:not([type="radio"], [type="checkbox"]), select'
+							.val value
 
 		changeSelect: (e) ->
 			input = @$ e.target
-			@formModel.set input.attr('name'), input.val(), { silent: true }
+			@formModel.set input.attr('name'), input.val(), { ignore: true }
 
 		clickRadio: (e) ->
 			input = @$ e.target
-			@formModel.set input.attr('name'), input.val(), { silent: true }
+			@formModel.set input.attr('name'), input.val(), { ignore: true }
 
 		clickCheckbox: (e) ->
 			input = @$ e.target
 			values = (@$(input).val() for input in @$el.find('input[type="checkbox"][name="' + input.attr('name') + '"]:checked').toArray())
-			@formModel.set input.attr('name'), values, { silent: true }
+			@formModel.set input.attr('name'), values, { ignore: true }
 
 		changeInput: (e) ->
 			input = @$ e.target
-			@formModel.set input.attr('name'), input.val(), { silent: true }
+			@formModel.set input.attr('name'), input.val(), { ignore: true }
 
 		render: ->
 			@bindFormToModel()
-			console.log @formModel
 			@listenTo @formModel, 'invalid', (model, messages) ->
 				for message in messages
 					field = @$el.find "label.#{message.field}"

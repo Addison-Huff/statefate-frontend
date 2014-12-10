@@ -26,9 +26,8 @@ define [
 			state.user.authenticate()
 				.then ->
 					router.navigate '/', trigger: true
-				.fail (e) ->
-					res = JSON.parse e.responseText
-					console.log res.message
+				.fail (res) =>
+					@alert res.responseJSON.message
 
 		render: ->
 			Backbone.$('body').removeClass().addClass('login')

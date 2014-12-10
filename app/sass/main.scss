@@ -221,6 +221,12 @@ body.login {
 	padding-top: 100px;
 }
 
+body.sign-up {
+	#body {
+		margin-top: $userFormOffset;
+	}
+}
+
 body.protest-show {
 	#body.protest {
 		margin-top: $topMargin;
@@ -268,7 +274,6 @@ body {
 	label.error > input {
 		border-color: $errorRed;
 	}
-	padding-top: 10px;
 	height: 100%;
 }
 
