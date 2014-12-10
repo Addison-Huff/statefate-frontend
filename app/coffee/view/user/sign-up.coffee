@@ -25,14 +25,17 @@ define [
 			deferred = state.user.set
 				username: @formModel.get 'username'
 				password: @formModel.get 'password'
+				email: @formModel.get 'email'
 			.save()
 
 			if deferred
-				deferred.then ->
+				deferred.then =>
+					@clearMessage()
 					state.user.authenticate().then ->
 						router.navigate '/', trigger: true
-				.fail ->
-					alert 'there was an error creating your user'
+				.fail (res) =>
+					for message in res.responseJSON.message
+						@alert message
 
 
 		render: ->

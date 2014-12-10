@@ -2,11 +2,13 @@ define [
 	'view/base',
 	'view/protest/followers',
 	'template/protest/show',
+	'router',
 	'state'
 ], (
 	BaseView,
 	FollowersView,
 	template,
+	router,
 	state
 ) ->
 	ProtestView = BaseView.extend
@@ -21,6 +23,10 @@ define [
 
 		clickJoin: (e) ->
 			state.user.join @protest.get 'id'
+				.then =>
+					@render()
+				.fail ->
+					router.navigate '/user/login', trigger: true
 
 		render: ->
 			if @$el.is '#body'
