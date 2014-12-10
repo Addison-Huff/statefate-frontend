@@ -18,11 +18,11 @@ $topMargin: 10px;
 .top-bar{
 	margin-top: 8px;
 	.home {
-		width: 171px;
+		width: 171px !important;
 		height: 62px;
 		text-align: center;
-		font-size: 24px;
-		display: flex;
+		font-size: 22px;
+		display: flex !important;
 		align-items: center;
 		justify-content: center;
 	}
@@ -34,6 +34,9 @@ $topMargin: 10px;
 	position: relative;
 	.top-bar {
 		background: none;
+		.title-area{
+			height: 100%;
+		}
 		.login, 
 		.title-area,
 		.sign-up {
@@ -65,6 +68,7 @@ $topMargin: 10px;
 			display: inline-block; 
 			margin-right: 10px; 
 			font-size: 11px;
+			text-decoration: none;
 		}
 	}
 }
@@ -72,13 +76,12 @@ $topMargin: 10px;
 .home #body {
 	text-align: center;
 	.objective {
-		height: 350px;
+		height: 500px;
 		padding: 140px 0 0 0;
-		padding-top: 75px;
 		background: url(/img/protest.jpg);
 		h1 {
 			color: white;
-			font-size: 20px;
+			font-size: 33px;
 			font-family: 'Roboto Slab', Arial, serif;
 		}
 		.column {
@@ -117,10 +120,10 @@ body.login {
 		background: rgb(48, 48, 48);
 		float: left;
 		i {
-			float:left;
+			float: left;
 		}
 		div {
-			float:left;
+			float: left;
 			font-size: 11px;
 			vertical-align: middle;
 		}
@@ -130,9 +133,14 @@ body.login {
 	}
 	.protest-list{
 		.row{
-			.protest .columns {
-				height:300px;
+			.protest{
+				min-height: 200px;
+				padding-bottom: 40%;
+				a{
+					text-decoration: none;
+				}
 			}
+
 		}
 	}
 }
