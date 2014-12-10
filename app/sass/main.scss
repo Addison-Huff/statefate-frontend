@@ -6,6 +6,12 @@ $darkBlue: rgb(13, 101, 217);
 $errorRed: #f04124;
 $topMargin: 10px;
 
+@mixin flex_box($location){
+	display:flex;
+	align-items:$location;
+	justify-content:$location;
+}
+
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
 @import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
 @import url("/icons/foundation_icons_general/fonts/general_foundicons.eot");
@@ -22,9 +28,6 @@ $topMargin: 10px;
 		height: 62px;
 		text-align: center;
 		font-size: 22px;
-		display: flex !important;
-		align-items: center;
-		justify-content: center;
 	}
 }
 
@@ -83,10 +86,28 @@ $topMargin: 10px;
 			color: white;
 			font-size: 33px;
 			font-family: 'Roboto Slab', Arial, serif;
+			margin-bottom: 1.5 rem;
 		}
 		.column {
 			.button {
 				width:200px;
+			}
+		}
+	}
+	.search {
+		max-width: 90rem;
+		.nav {
+			.columns {
+				ul {
+					li {
+						display: inline;
+						float: right;
+						button {
+							height: 63px;
+							width: 111px;
+						}
+					}
+				}
 			}
 		}
 	}
