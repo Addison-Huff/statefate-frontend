@@ -36,8 +36,7 @@ define [
 			if @formModel.get('zip')?.length == 5
 				@map.setQuery @formModel.get 'zip'
 				@map.render()
-			else
-				if @map.q != 'USA' && @formModel.previous('zip') == null
+			else if !@map.q || @map.q != 'USA' && @formModel.previous('zip') == null
 					@map.setQuery 'USA'
 					@map.render()
 

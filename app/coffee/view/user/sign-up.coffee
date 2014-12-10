@@ -15,11 +15,13 @@ define [
 		el: '#body'
 
 		submit: ->
-			state.user.set
+			deferred = state.user.set
 				username: @formModel.get 'username'
 				password: @formModel.get 'password'
 			.save()
-				.then ->
+
+			if deferred
+				deferred.then ->
 					state.user.authenticate().then ->
 						router.navigate '/', trigger: true
 				.fail ->
