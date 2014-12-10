@@ -4,7 +4,6 @@ $grey: rgb(235, 235, 235);
 $blue: rgb(33,121,237);
 $darkBlue: rgb(13, 101, 217);
 $errorRed: #f04124;
-
 $topMargin: 10px;
 
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
@@ -12,12 +11,25 @@ $topMargin: 10px;
 @import url("/icons/foundation_icons_general/fonts/general_foundicons.eot");
 
 body{
-	background:url(/img/Statefate-homepage-1.jpg);
+	background:url(/img/homepage.jpg);
 }
 
 *,
 .top-bar-section ul li > a {
 	font-family: 'Roboto Slab', Arial, serif;
+}
+
+.top-bar{
+	margin-top: 8px;
+	.home {
+		width: 171px;
+		height: 62px;
+		text-align: center;
+		font-size: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 #header {
