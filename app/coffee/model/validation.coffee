@@ -13,7 +13,11 @@ define [
 			number: (val, field, arg) ->
 				Validation.methods.pattern val, field, /^\d+$/
 			pattern: (val, field, arg) ->
-				typeof val != undefined and arg.test (val || '').toString()
+				if val
+					typeof arg.test (val || '').toString()
+				else
+					true
+
 			required: (val, field, arg) ->
 				Validation.methods.pattern val, field, /[^\s]/
 			date: (val, field, arg) ->
@@ -23,7 +27,10 @@ define [
 			min: (val, field, min) ->
 				min <= val
 			type: (val, field, Type) ->
-				@.set field, (new Type(val)).valueOf()
+				if val != ''
+					@.set field, (new Type(val)).valueOf()
+				else
+					true
 
 
 		messages:

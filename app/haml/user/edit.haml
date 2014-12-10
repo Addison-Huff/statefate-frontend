@@ -1,0 +1,34 @@
+%form#edit-user{novalidate: 'novalidate'}
+	.row.info
+		.column.large-4.avatar
+			%img{ href: '/not-found' }
+		.column.large-8
+			.row
+				%label.column.large-4 Username
+					%input{ readonly: 'readonly', type: 'text', value: "#{user.get('username')}" }
+				%label.email.column.large-4 Email
+					%input{ name: 'email', type: 'email', value: "#{user.get('email') || ''}" }
+			.row
+				%label.zip.column.large-4 Zipcode
+					%input{ name: 'zip', type: 'text', value: "#{user.get('zip') || ''}" }
+				%label.website.column.large-4 Website
+					%input{ name: 'wesite', type: 'url', value: "#{user.get('website') || ''}"}
+	.row.map
+		.column.large-12
+
+	.row.bio
+		%label.bio.column.large-12 Bio
+			%textarea{ name: 'bio' }
+				= (user.get('bio') || '')
+
+	.row.controls
+		.column.large-4 &nbsp;
+		.column.large-4
+			%button.button.cancel
+				Cancel
+			&nbsp;
+			%button.button.saveChanges
+				Save Changes
+
+		.column.large-4 &nbsp;
+

@@ -20,8 +20,9 @@ define [
 		submit: (e) ->
 			@protest = new ProtestModel(@formModel.attributes)
 			@protest.save()
-				.then (protest) ->
-					router.navigate '/protest/' + protest.id, trigger: true
+				.then (res) ->
+					id = res.protest.id
+					router.navigate '/protest/' + id, trigger: true
 				.fail ->
 					# show some error
 

@@ -8,7 +8,7 @@
 		%ul.right
 			- if (user.isLoggedIn()) {
 			%li
-				%a.account{ href: '/user/account' }
+				%a.account{ href: '/user' }
 					= user.get('username')
 			%li
 				%a.logout{ href: '/user/logout' } Logout

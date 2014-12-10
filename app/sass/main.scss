@@ -10,10 +10,6 @@ $topMargin: 10px;
 @import url("/icons/foundation_icons_general/stylesheets/general_foundicons.css");
 @import url("/icons/foundation_icons_general/fonts/general_foundicons.eot");
 
-body{
-	background:url(/img/homepage.jpg);
-}
-
 *,
 .top-bar-section ul li > a {
 	font-family: 'Roboto Slab', Arial, serif;
@@ -74,12 +70,12 @@ body{
 }
 
 .home #body {
-	opacity: .5;
 	text-align: center;
 	.objective {
 		height: 350px;
 		padding: 140px 0 0 0;
 		padding-top: 75px;
+		background: url(/img/protest.jpg);
 		h1 {
 			color: white;
 			font-size: 20px;
@@ -213,6 +209,15 @@ body.protest-show {
 	}
 }
 
+#edit-user {
+	margin-top: $userFormOffset;
+	.map iframe {
+		border: none;
+		width: 100%;
+		height: 300px;
+	}
+}
+
 #body {
 	min-height: 100%;
 	position: relative;
@@ -220,6 +225,8 @@ body.protest-show {
 }
 body {
 	textarea,
+	input[type="url"],
+	input[type="email"],
 	input[type="text"],
 	input[type="number"] {
 		border: none;
@@ -234,6 +241,14 @@ body {
 	}
 	padding-top: 10px;
 	height: 100%;
+}
+
+.alert-box {
+	position: fixed;
+	top: 0;
+	text-align: center;
+	width: 100%;
+	z-index: 10;
 }
 
 .headline {

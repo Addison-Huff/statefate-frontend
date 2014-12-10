@@ -18,15 +18,15 @@ define [
 			'change select': 'changeSelect'
 			'click input[type="radio"]': 'clickRadio'
 			'click input[type="checkbox"]': 'clickCheckbox'
-			'keyup input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
+			'input input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
 			'change input:not(input[type="radio"], input[type="checkbox"])': 'changeInput'
-			'change textarea': 'changeInput'
+			'input textarea': 'changeInput'
 			'submit': 'validate'
 
 		validate: (e) ->
 			e.preventDefault()
 			if @formModel.isValid()
-				this.submit()
+				this.submit(e)
 
 		bindFormToModel: ->
 			form = @$el

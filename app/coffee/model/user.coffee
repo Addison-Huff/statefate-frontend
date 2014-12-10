@@ -1,22 +1,31 @@
 define [
-	'backbone',
-	'model/join'
+	'model/form',
+	'model/join',
+	'jquery'
 ], (
-	Backbone,
-	Join
+	FormModel,
+	Join,
+	$
 ) ->
-	UserModel = Backbone.Model.extend
+	UserModel = FormModel.extend
 		urlRoot: '/api/user'
 
+		fields: 
+			username: 
+				required: true
+
+			email:
+				pattern: /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+
 		authenticate: ->
-			Backbone.$.ajax
+			$.ajax
 				url: '/api/user/authenticate'
 				data: JSON.stringify
 					username: @get 'username'
 					password: @get 'password'
 				type: 'POST'
 			.then =>
-				@trigger 'login'
+				@trigger 'authenticated'
 
 		isLoggedIn: ->
 			/session/.test document.cookie
@@ -26,7 +35,7 @@ define [
 				@identified = @fetch
 					url: '/api/user'
 			else if !@isLoggedIn()
-				@identified = Backbone.$.Deferred()
+				@identified = $.Deferred()
 				@identified.reject()
 
 			@identified
@@ -34,10 +43,11 @@ define [
 		logout: ->
 			document.cookie = 'session=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT'
 			@identified = null
+			@clear()
 			@trigger 'logout'
 
 		join: (protestId) ->
-			Backbone.$.ajax
+			$.ajax
 				url: "/api/protest/#{protestId}/join"
 				type: 'PUT'
 			.then =>
@@ -46,7 +56,7 @@ define [
 				console.log 'cant join'
 
 		isJoined: (protestId) ->
-			deferred = Backbone.$.Deferred()
+			deferred = $.Deferred()
 			if @isLoggedIn()
 				join = new Join protest_id: protestId
 				join.fetch()
@@ -57,7 +67,7 @@ define [
 			deferred
 
 		leave: (protestId) ->
-			Backbone.$.ajax
+			$.ajax
 				url: "/api/protest/#{protestId}/leave"
 				type: 'PUT'
 			.then =>

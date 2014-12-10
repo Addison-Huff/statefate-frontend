@@ -13,6 +13,7 @@ define [
 			'user/sign-up': 'signUp'
 			'protest/create': 'createProtest'
 			'protest/:id': 'showProtest'
+			'user': 'editUser'
 			'*path': '404'
 
 		log: console.log.bind console, '[Router]'
@@ -73,4 +74,10 @@ define [
 
 				@currentView.render()
 
+		editUser: ->
+			@currentView?.stop()
+			require ['view/user/edit'], (EditUserView) =>
+				@currentView = new EditUserView
+				@currentView.render()
+				
 	return new Router
