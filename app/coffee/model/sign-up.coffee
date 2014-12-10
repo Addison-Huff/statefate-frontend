@@ -1,21 +1,15 @@
 define [
-	'model/form'
+	'model/user',
+	'jquery'
 ], (
-	FormModel
+	UserModel,
+	$
 ) ->
-	SignUpModel = FormModel.extend
+	class SignUpModel extends UserModel
 
-		fields:
-			password:
-				required: true
-
-			username:
-				required: true
-
-			confirmPassword:
-				confirm: 'password'
-				required: true
-
-			confirmUsername:
-				required: true
-				confirm: 'username'
+		fields: ( ->
+			$.extend UserModel::fields,
+				confirmPassword:
+					confirm: 'password'
+					required: true
+			)()

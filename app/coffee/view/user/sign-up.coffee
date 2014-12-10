@@ -1,18 +1,25 @@
 define [
+	'model/sign-up',
 	'view/form',
 	'jquery',
 	'state',
 	'router',
 	'template/user/sign-up'
 ], (
+	SignUpFormModel,
 	FormView,
 	$,
 	state,
 	router,
 	template
 ) ->
-	SignUpView = FormView.extend
+	class SignUpView extends FormView
 		el: '#body'
+
+		initialize: (options) ->
+			options ?= {}
+			options.formModel ?= new SignUpFormModel
+			super(options)
 
 		submit: ->
 			deferred = state.user.set

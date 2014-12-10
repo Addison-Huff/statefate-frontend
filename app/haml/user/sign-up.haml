@@ -9,15 +9,15 @@
 			%button.button.twitter-btn
 				Sign in with Twitter
 
-	%form.large-4.column
+	%form.large-4.column{ novalidate: 'novalidate' }
 		.row.username
 			.large-12.column
 				%label.username Username
 					%input{ name: 'username', placeholder: 'john.doe', type: 'text' }
 		.row.username-confirm
 			.large-12.column
-				%label.confirmUsername Confirm username
-					%input{ name: 'confirmUsername', type: 'text', placeholder: 'john.doe' }
+				%label.email Email
+					%input{ name: 'email', type: 'email', placeholder: 'john.doe@email.com' }
 		.row.password
 			.large-12.column
 				%label.password Password
@@ -28,7 +28,7 @@
 					%input{ name: 'confirmPassword', type: 'password' }
 
 		.row.login
-			%button.button.create-btn
+			%button.button.create-btn{type: 'submit'}
 				Sign Up
 
 	.column.large-2 &nbsp;
