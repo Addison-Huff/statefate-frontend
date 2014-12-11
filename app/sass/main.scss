@@ -1,4 +1,4 @@
-$black: #000;
+$black: #0F0F0F;
 $userFormOffset: 100px;
 $grey: rgb(235, 235, 235);
 $blue: rgb(33,121,237);
@@ -6,10 +6,10 @@ $darkBlue: rgb(13, 101, 217);
 $errorRed: #f04124;
 $topMargin: 10px;
 
-@mixin flex_box($location){
+@mixin flex_box_center{
 	display:flex;
-	align-items:$location;
-	justify-content:$location;
+	align-items:center;
+	justify-content:center;
 }
 
 @import url("//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab");
@@ -39,6 +39,14 @@ $topMargin: 10px;
 		background: none;
 		.title-area{
 			height: 100%;
+			li{
+				h1{
+					a{
+						@include flex_box_center;
+					}
+				}
+			}
+
 		}
 		.login, 
 		.title-area,
@@ -94,8 +102,37 @@ $topMargin: 10px;
 			}
 		}
 	}
-	.search {
-		max-width: 90rem;
+	.search{
+		max-width:1100px;
+		h1 {
+			text-align: left;
+			font-size: 15px;
+			margin-top: 23px;
+		}
+		p {
+			float: left;
+			margin-top: 19px;
+			margin-right: 15px;
+			font-size: 12px;
+		}
+		.button{
+			margin: 0.5rem 0.2rem 0.5rem 0.2rem;
+			padding: 1rem 1rem 0.9rem 1rem;
+			font-size: 12px;
+			background: $black;
+			float: left;
+			i {
+				float: left;
+			}
+			div {
+				float: left;
+				font-size: 11px;
+				vertical-align: middle;
+			}
+		}
+		.row{
+			max-height: 100%;
+		}
 		.nav {
 			.columns {
 				ul {
@@ -103,9 +140,19 @@ $topMargin: 10px;
 						display: inline;
 						float: right;
 						button {
-							height: 63px;
+							height: 45px;
 							width: 111px;
+							@include flex_box_center;
 						}
+					}
+				}
+			}
+		}
+		.protest-list{
+			.row{
+				.protest{
+					a{
+						text-decoration: none;
 					}
 				}
 			}
@@ -116,54 +163,6 @@ $topMargin: 10px;
 body.sign-up,
 body.login {
 	background: url(/img/protest.jpg)
-}
-
-.search{
-	max-width: 70.5rem;
-	.row {
-		margin: 50px 0 0 0;
-	}
-	h1 {
-		text-align: left;
-		font-size: 15px;
-		margin-top: 23px;
-	}
-	p {
-		float: left;
-		margin-top: 19px;
-		margin-right: 15px;
-		font-size: 12px;
-	}
-	.button{
-		margin: 0.5rem 0.2rem 0.5rem 0.2rem;
-		padding: 1rem 1rem 0.9rem 1rem;
-		font-size: 12px;
-		background: rgb(48, 48, 48);
-		float: left;
-		i {
-			float: left;
-		}
-		div {
-			float: left;
-			font-size: 11px;
-			vertical-align: middle;
-		}
-	}
-	.row{
-		max-height: 100%;
-	}
-	.protest-list{
-		.row{
-			.protest{
-				min-height: 200px;
-				padding-bottom: 40%;
-				a{
-					text-decoration: none;
-				}
-			}
-
-		}
-	}
 }
 
 #login {
