@@ -9,6 +9,10 @@ define [
 
 		fields: ( ->
 			$.extend {}, UserModel::fields,
+				password:
+					required: true
+					minLength: 6
+					
 				confirmPassword:
 					confirm: 'password'
 					required: true

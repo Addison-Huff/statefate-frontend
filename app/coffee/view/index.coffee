@@ -22,6 +22,7 @@ define [
 		click: (e) ->
 			e.preventDefault()
 			router.navigate e.target.pathname, trigger: true
+			scrollTo 0, 0
 
 		render: ->
 			@topnav.render()

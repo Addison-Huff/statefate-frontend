@@ -20,6 +20,7 @@ define [
 
 		events: 
 			'click button.join': 'clickJoin'
+			'click button.leave': 'clickLeave'
 
 		clickJoin: (e) ->
 			state.user.join @protest.get 'id'
@@ -27,6 +28,10 @@ define [
 					@render()
 				.fail ->
 					router.navigate '/user/login', trigger: true
+
+		clickLeave: (e) ->
+			state.user.leave @protest.get 'id'
+				.fail ->
 
 		render: ->
 			if @$el.is '#body'
