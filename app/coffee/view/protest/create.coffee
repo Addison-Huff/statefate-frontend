@@ -28,5 +28,9 @@ define [
 
 		render: ->
 			$('body').removeClass().addClass('create-protest')
-			@$el.html template @formModel.attributes
+			render = =>
+				@$el.html template @formModel.attributes
+			if not @formModel.isNew()
+				@formModel.fetch().then render
+			render()
 			FormView::render.call @

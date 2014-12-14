@@ -13,6 +13,7 @@ define [
 			'user/sign-up': 'signUp'
 			'protest/create': 'createProtest'
 			'protest/:id': 'showProtest'
+			'protest/:id/edit': 'editProtest'
 			'user': 'editUser'
 			'*path': '404'
 
@@ -53,6 +54,17 @@ define [
 				require ['view/protest/create', 'model/protest-form'], (CreateProtestView, ProtestFormModel) =>
 					@currentView = new CreateProtestView
 						formModel: new ProtestFormModel
+					@currentView.render()
+
+		editProtest: (id) ->
+			if not state.user.isLoggedIn()
+				@navigate '/user/login', trigger: true
+			else
+				@currentView?.stop()
+				require ['view/protest/create', 'model/protest-form'], (EditProtestView, ProtestFormModel) =>
+					protest = new ProtestFormModel id: id
+					@currentView = new EditProtestView
+						formModel: protest
 					@currentView.render()
 				
 		showProtest: (id) ->

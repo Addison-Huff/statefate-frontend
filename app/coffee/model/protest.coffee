@@ -1,11 +1,11 @@
 define [
 	'collection/followers',
-	'backbone'
+	'model/form'
 ], (
 	Followers,
-	Backbone
+	FormModel
 ) ->
-	ProtestModel = Backbone.Model.extend
+	ProtestModel = FormModel.extend
 		urlRoot: '/api/protest'
 		initialize: (options) ->
 			@followers = new Followers protest: @

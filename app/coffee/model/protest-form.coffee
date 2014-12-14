@@ -1,9 +1,9 @@
 define [
-	'model/form'
+	'model/protest'
 ], (
-	FormModel
+	ProtestModel
 ) ->
-	ProtestFormModel = FormModel.extend
+	ProtestFormModel = ProtestModel.extend
 		defaults: 
 			threshold: 50
 			goal: ''

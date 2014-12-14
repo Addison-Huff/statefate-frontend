@@ -1,7 +1,7 @@
 %form#create-protest.row
 	.row.title
 		%label.column.large-12.title Title
-			%input{placeholder: 'Ex: Legalize Marijuana', name: 'title', type: 'text', value: "#{title}" }
+			%input{ placeholder: "#{id ? '' : 'Ex: Legalize Marijuana'}", name: 'title', type: 'text', value: "#{title}" }
 	.row.image-and-location
 		.column.large-6.image
 			Something goes here!
